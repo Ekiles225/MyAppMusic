@@ -12,9 +12,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 })
 export class PrincipalPage implements OnInit {
 
+  //user:any;
   constructor() { }
 
+
   ngOnInit() {
+    // this.user = localStorage.getItem('username') esto es para mostar el usuario en una esquinita
+    //luego esta variable user la uso en el html <span>user</span>
   }
 
 }
+

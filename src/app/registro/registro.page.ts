@@ -28,6 +28,15 @@ export class RegistroPage implements OnInit {
     this.userService.registerUser(nombre.value, apellido.value, correo.value, telefono.value, pasword.value).subscribe({
         next: (datos:any) =>{
           debugger
+
+          //esto es en el loguin solo que no lo tengo echo
+          //esto es para verificar que eres tu, son variables locales para usar
+          // localStorage.setItem('toke', datos.toke)
+          // localStorage.setItem('id', datos.dataUser.id)
+          // localStorage.setItem('toke', datos.dataUser.user)
+
+
+
           console.log('Usuario registrado con exito');
         }, 
         error:(error:any) =>{

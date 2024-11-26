@@ -1,27 +1,34 @@
-#container {
-  text-align: center;
+/* Fondo */
+.background-container {
+  position: relative;
+  height: 100%;
+}
 
+.background-video,
+.background-image {
   position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.open-action-sheet {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: #007aff;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+/* Estilo del Action Sheet */
+ion-action-sheet {
+  --background: rgba(255, 255, 255, 0.95);
+  --color: #333;
+  --button-background-activated: #f0f0f0;
+  --button-icon-color: #007aff;
 }

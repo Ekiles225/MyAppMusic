@@ -1,33 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"></ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="hi">
-    <h1>HELLO! </h1>
+<ion-content class="background-container">
+  <!-- Video o imagen de fondo -->
+  <div class="background">
+    <!-- <video autoplay muted loop playsinline class="background-video">
+      <source src="assets/background-video.mp4" type="video/mp4" />
+    </video> -->
+    <!-- Si no tienes video, usa una imagen -->
+    <img src="assets/icon/fondo.jpeg" class="background-image" />
+    
   </div>
 
-
-  <div class="secion">
-    <p>Iniciar secion con:</p>
-  </div>
-
-  <ion-button expand="block">Google</ion-button>
-  <ion-button expand="block">Facebook</ion-button>
-  <ion-button expand="block">Crear</ion-button>
-
-  <div class="iniciar">
-    <p>Ya tengo una cuenta <a href=""><i>Iniciar secion</i></a> </p>
-  </div>
+  <!-- Botón que abre la hoja modal -->
+  <ion-button expand="block" class="open-action-sheet" (click)="presentActionSheet()">
+    Iniciar sesión
+  </ion-button>
 
 </ion-content>

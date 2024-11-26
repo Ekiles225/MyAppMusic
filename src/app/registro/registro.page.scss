@@ -1,0 +1,80 @@
+/* Fondo */
+.background-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFCCBC, #B3E5FC); /* Degradado pastel */
+    z-index: -1;
+  }
+  
+  /* Contenedor */
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+  /* Animación de entrada */
+  .register-form {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease-out;
+    margin: 0 auto; /* Añadir centrado */
+  }
+  
+  .register-form.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Campos */
+//   ion-item {
+//     margin-bottom: 15px;
+//     --background: rgba(255, 255, 255, 0.5);
+//     border-radius: 12px;
+//   }
+  
+  ion-icon {
+    color: #0078FF;
+  }
+  
+  /* Botón */
+  .register-btn {
+    background: linear-gradient(135deg, #FFAB91, #FFCCBC);
+    color: white;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  
+  /* Link */
+  .back-link {
+    margin-top: 15px;
+    color: #555;
+    font-size: 14px;
+  }
+  .back-link a {
+    color: #0078FF;
+    text-decoration: underline;
+  }
+  
+  /* Error */
+  .password-error {
+    font-size: 12px;
+    color: red;
+    display: none;
+    margin-top: -10px;
+  }
+  

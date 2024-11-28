@@ -1,0 +1,51 @@
+ion-toolbar {
+  --background: #ffffff; /* Fondo blanco */
+  --color: #000000;      /* Texto negro */
+}
+
+ion-content {
+  --background: #f5f5f5; /* Fondo gris claro */
+}
+
+/* Carrusel horizontal */
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  padding: 10px;
+  gap: 10px; /* Espaciado entre los elementos */
+  scrollbar-width: none; /* Oculta barra de scroll en Firefox */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none; /* Oculta barra de scroll en Chrome, Safari */
+}
+
+.album-card {
+  min-width: 150px; /* Ancho mínimo para cada álbum */
+  flex-shrink: 0; /* Evita que los álbumes se reduzcan */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.song-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.song-details {
+  color: #000; /* Texto negro */
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.song-artist {
+  font-size: 12px;
+  color: gray;
+  margin: 0;
+}

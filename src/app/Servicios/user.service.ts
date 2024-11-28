@@ -21,4 +21,12 @@ export class UserService {
     return this.htt.post('http://127.0.0.1:3000/api/register', DataUser);
   }
 
+  loginUser(correo:any, pasword:any){
+    const DataUser = {
+      correo:correo,
+      pasword:pasword
+    }
+    return this.htt.post('http://127.0.0.1:3000/api/login', DataUser);
+  }
+
 }

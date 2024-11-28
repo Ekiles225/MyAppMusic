@@ -5,6 +5,8 @@ import { IonContent, IonItem, IonInput, IonButton, IonInputPasswordToggle } from
 import { eye, lockClosed } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { UserService } from '../Servicios/user.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +18,7 @@ import { UserService } from '../Servicios/user.service';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private userService:UserService) { 
+  constructor(private userService:UserService, private alertCtrl: AlertController, private router: Router) { 
     addIcons({ eye, lockClosed });
   }
 
@@ -27,15 +29,26 @@ export class RegistroPage implements OnInit {
   registerUser(nombre:any, apellido:any, correo:any, telefono:any, pasword:any){
     this.userService.registerUser(nombre.value, apellido.value, correo.value, telefono.value, pasword.value).subscribe({
         next: (datos:any) =>{
-          debugger
           console.log('Usuario registrado con exito');
+          this.showAlert('Éxito', 'Cuenta creada');
+          this.router.navigateByUrl('/principal');
         }, 
         error:(error:any) =>{
           console.log('Error al registrar usuario', error.message);
-          debugger
+          this.showAlert('Error', 'Ups ha pasado algo, vuelva a intentarlo');
+
         }
 
     });
+  }
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 //FIN DEL METODO  
 

@@ -29,6 +29,19 @@ export class RegistroPage implements OnInit {
   registerUser(nombre:any, apellido:any, correo:any, telefono:any, pasword:any){
     this.userService.registerUser(nombre.value, apellido.value, correo.value, telefono.value, pasword.value).subscribe({
         next: (datos:any) =>{
+<<<<<<< HEAD
+=======
+          debugger
+
+          //esto es en el loguin solo que no lo tengo echo
+          //esto es para verificar que eres tu, son variables locales para usar
+          // localStorage.setItem('toke', datos.toke)
+          // localStorage.setItem('id', datos.dataUser.id)
+          // localStorage.setItem('toke', datos.dataUser.user)
+
+
+
+>>>>>>> 887f1a98cd972331bbb5a58537b5afd4817b22c1
           console.log('Usuario registrado con exito');
           this.showAlert('Éxito', 'Cuenta creada');
           this.router.navigateByUrl('/principal');

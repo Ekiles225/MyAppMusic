@@ -38,6 +38,7 @@ export class LoginPage {
     });
   }
 
+<<<<<<< HEAD
   // Método para mostrar alertas
   async showAlert(header: string, message: string) {
     const alert = await this.alertCtrl.create({
@@ -47,4 +48,7 @@ export class LoginPage {
     });
     await alert.present();
   }
+=======
+  
+>>>>>>> 887f1a98cd972331bbb5a58537b5afd4817b22c1
 }

@@ -19,15 +19,23 @@ import {IonGrid, IonMenuButton, IonCol, IonRow, IonFooter, IonImg, IonCardTitle,
 })
 export class PrincipalPage implements OnInit {
 
+  //user:any;
   constructor() { }
 
+<<<<<<< HEAD
   slideOpts = {
     slidesPerView: 2.2,
     spaceBetween: 10,
   };
 
   
+=======
+
+>>>>>>> 887f1a98cd972331bbb5a58537b5afd4817b22c1
   ngOnInit() {
+    // this.user = localStorage.getItem('username') esto es para mostar el usuario en una esquinita
+    //luego esta variable user la uso en el html <span>user</span>
   }
 
 }
+

@@ -1,45 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonInputPasswordToggle } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
+import { IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
-
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonButton ,IonInput, IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton ,IonInput, IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
+     IonButtons, IonBackButton, RouterLink]
 })
 export class LoginPage {
-  constructor(private userService: UserService, private alertCtrl: AlertController, private router: Router) {}
+ 
+constructor(private UserService: UserService, private router:Router,
+  private loadingController:LoadingController, private alertController:AlertController, private alertCtrl: AlertController) {}
 
-  // Método para iniciar sesión
-  loginUser(correo: any, pasword: any) {
-    // Validar campos vacíos
-    if (!correo.value || !pasword.value) {
-      this.showAlert('Error', 'Por favor, completa todos los campos.');
-      return;
-    }
+  ngOnInit() {}
+      async loginUser(email:any, password:any) {
+      const loading = await this.loadingController.create({
+      message: 'Iniciando sesión...',
+      spinner: 'circles',
+  });
 
-    this.userService.loginUser(correo.value, pasword.value).subscribe({
-      next: async (datos: any) => {
-        console.log('Credenciales correctas', datos.message);
-        this.showAlert('Éxito', 'Inicio de sesión exitoso');
-        this.router.navigateByUrl('/principal');
-      },
-      error: async (error: any) => {
-        console.error('Credenciales incorrectas', error.message);
-        this.showAlert('Error', 'Correo o contraseña incorrectos.');
-      },
-    });
+  loading.present();
+  
+  this.UserService.loginUser(email.value,password.value).subscribe({
+    next: async (datos: any) => {
+      localStorage.setItem('token',datos.token);
+      localStorage.setItem('id',datos.dataUser.id);
+      localStorage.setItem('nombre',datos.dataUser.user);
+      loading.dismiss();
+      this.showAlert('Éxito', 'Inicio de sesión exitoso');
+      this.router.navigateByUrl('principal');
+    },
+    error: async (e: any) => {
+      loading.dismiss();
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: e.error.message,
+        buttons: ['OK'],
+      });
+      await alert.present();
+    },
+   });
   }
 
-<<<<<<< HEAD
-  // Método para mostrar alertas
   async showAlert(header: string, message: string) {
     const alert = await this.alertCtrl.create({
       header,
@@ -47,8 +58,5 @@ export class LoginPage {
       buttons: ['OK'],
     });
     await alert.present();
-  }
-=======
-  
->>>>>>> 887f1a98cd972331bbb5a58537b5afd4817b22c1
+}
 }

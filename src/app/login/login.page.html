@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -37,7 +40,7 @@
 
     <!-- Enlace de registro -->
     <p class="register-link">
-      ¿No tienes cuenta? <a href="/registro">Regístrate aquí</a>
+      ¿No tienes cuenta? <a href="" [routerLink]="['/registro']" routerLinkActive="router-link-active" >Regístrate aquí</a>
     </p>
   </div>
 </ion-content>

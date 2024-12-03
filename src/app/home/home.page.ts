@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {IonButton, IonContent} from '@ionic/angular/standalone';
 import { ActionSheetController } from '@ionic/angular';
-import { addIcons } from 'ionicons';
-import { logoIonic } from 'ionicons/icons';
 import { Router } from '@angular/router';
 
 
@@ -16,7 +14,6 @@ import { Router } from '@angular/router';
 
 export class HomePage {
   constructor(private actionSheetController: ActionSheetController, private routerLink: Router) {
-    addIcons({ logoIonic });
   }
  
 
@@ -26,18 +23,21 @@ export class HomePage {
       buttons: [
         {
           text: 'Google',
+          // icon: 'logo-google',
           handler: () => {
             console.log('Iniciar con Google');
           },
         },
         {
           text: 'Facebook',
+          // icon: 'logo-facebook',
           handler: () => {
             console.log('Iniciar con Facebook');
           },
         },
         {
           text: 'Registrarme',
+          // icon: 'person-add-outline',
           handler: () => {
             console.log('Crear cuenta');
             this.routerLink.navigate(['/registro']);// esto es el estilo  para la navegacion en el ts
@@ -46,6 +46,7 @@ export class HomePage {
         },
         {
           text: 'Ya tengo cuenta',
+          // icon: 'log-in-outline',
           handler: () => {
             console.log('Iniciar sesión con correo electrónico');
             this.routerLink.navigate(['/login']);

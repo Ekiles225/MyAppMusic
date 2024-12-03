@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Perfil de Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   <!-- Imagen de Perfil -->
+   <div class="profile-header">
+    <ion-img class="profile-picture" ></ion-img>
+    <h2 class="user-name"></h2>
+    <ion-input value="{{profile.user.person.nombreUsuario}}"></ion-input>
+    <ion-input value="{{profile.user.person.descripcion}}"></ion-input>
+  </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Mis Playlists</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let playlist of playlists">
+            <ion-thumbnail slot="start">
+              <ion-img [src]="playlist.imagen || 'assets/default-playlist.png'"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{playlist.titulo}}</h2>
+              <p>{{playlist.descripcion}}</p>
+            </ion-label>
+            <!-- Botón de Like -->
+            <ion-button fill="clear" (click)="darLike(playlist)">
+              <ion-icon slot="icon-only" [name]="playlist.liked ? 'heart' : 'heart-outline'"></ion-icon>
+            </ion-button>
+            <!-- Contador de Likes -->
+            <ion-note slot="end">{{playlist.likes}} Likes</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+   
+  <!-- Botones de Acción -->
+  <div class="action-buttons">
+    <ion-button expand="block" fill="outline" color="primary" routerLink="/editar-perfil">
+      <ion-icon slot="start" name="create-outline"></ion-icon>
+      Editar Perfil
+    </ion-button>
+    <ion-button expand="block" color="danger" href="/home">
+      <ion-icon slot="start" name="log-out-outline" ></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title text-center>Mi Música</ion-title>
+  </ion-toolbar>
+</ion-footer>

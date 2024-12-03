@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar color="light">
     <ion-title>Mi Música</ion-title>
+    <!-- Botón para acceder al perfil -->
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-button routerLink="/perfil" fill="clear">
+        <a href="" [routerLink]="['/perfil-usuario']" routerLinkActive="router-link-active" >Percil</a>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

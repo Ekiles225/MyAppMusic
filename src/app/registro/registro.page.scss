@@ -1,80 +1,98 @@
-/* Fondo */
-.background-gradient {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #FFCCBC, #B3E5FC); /* Degradado pastel */
-    z-index: -1;
+/* Contenedor Principal */
+.register-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Fondo Animado */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e90ff);
+  background-size: 300% 300%;
+  animation: gradient-move 8s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* Animación del Fondo */
+@keyframes gradient-move {
+  0%, 100% {
+    background-position: 0% 50%;
   }
-  
-  /* Contenedor */
-  .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow: auto;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Animación de entrada */
-  .register-form {
-    position: relative;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 25px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 0.6s ease-out;
-    margin: 0 auto; /* Añadir centrado */
-  }
-  
-  .register-form.animate {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  /* Campos */
-//   ion-item {
-//     margin-bottom: 15px;
-//     --background: rgba(255, 255, 255, 0.5);
-//     border-radius: 12px;
-//   }
-  
-  ion-icon {
-    color: #0078FF;
-  }
-  
-  /* Botón */
-  .register-btn {
-    background: linear-gradient(135deg, #FFAB91, #FFCCBC);
-    color: white;
-    border-radius: 25px;
-    font-size: 16px;
-    margin-top: 15px;
-  }
-  
-  /* Link */
-  .back-link {
-    margin-top: 15px;
-    color: #555;
-    font-size: 14px;
-  }
-  .back-link a {
-    color: #0078FF;
-    text-decoration: underline;
-  }
-  
-  /* Error */
-  .password-error {
-    font-size: 12px;
-    color: red;
-    display: none;
-    margin-top: -10px;
-  }
-  
+}
+
+/* Formulario de Registro */
+.register-form {
+  width: 80%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.app-logo {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fade-in 1s ease-in-out;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #ddd;
+  animation: slide-up 1s ease-out;
+}
+
+/* Campos de Entrada */
+.input-field {
+  width: 100%;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.input-field::placeholder {
+  color: #ccc;
+}
+
+/* Botón de Registro */
+.btn-register {
+  margin-top: 10px;
+  background: #1e90ff;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.6);
+}
+
+.btn-register:hover {
+  background: #1c86e6;
+  transform: scale(1.05);
+}
+
+/* Link de Login */
+.login-link {
+  margin-top: 15px;
+  color: #ddd;
+}
+
+.login-link a {
+  color: #42a5f5;
+  text-decoration: none;
+}

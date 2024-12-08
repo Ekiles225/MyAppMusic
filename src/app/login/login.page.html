@@ -1,46 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="login-container">
+    <!-- Fondo animado -->
+    <div class="background-animation"></div>
 
-<ion-content class="login-container">
-  <!-- Fondo degradado -->
-  <div class="background-gradient"></div>
+    <!-- Formulario de inicio de sesión -->
+    <div class="login-form">
+      <h1 class="app-logo">🎵 MyMusicApp</h1>
+      <p class="tagline">¡Bienvenido de nuevo! Conéctate con tu música.</p>
 
-  <!-- Contenedor del formulario -->
-  <div class="login-form">
-    <h1>Iniciar Sesión</h1>
+      <!-- Campos de Login -->
+      <div class="form-group">
+        <ion-input placeholder="Correo electrónico" #correo type="email" class="input-field"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-input placeholder="Contraseña"  #pasword type="password" class="input-field"></ion-input>
+      </div>
 
-    <form>
-      <!-- Campo de correo -->
-      <ion-item>
-        <ion-label position="floating">Correo electrónico</ion-label>
-        <ion-input #correo type="email" required></ion-input>
-      </ion-item>
+      <!-- Botón de Iniciar Sesión -->
+      <ion-button (click)="loginUser(correo, pasword)" expand="block" class="btn-login">Iniciar Sesión</ion-button>
 
-      <!-- Campo de contraseña -->
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input #pasword type="password" required></ion-input>
-      </ion-item>
+      <!-- Opciones de Login con Redes Sociales -->
+      <div class="social-login">
+        <p>O inicia sesión con</p>
+        <div class="social-buttons">
+          <ion-button class="btn-facebook" (click)="loginWithFacebook()">Facebook</ion-button>
+          <ion-button class="btn-google" (click)="loginWithGoogle()">Google</ion-button>
+        </div>
+      </div>
 
-      <!-- Botón de inicio de sesión -->
-      <ion-button
-        (click)="loginUser(correo, pasword)"
-        expand="block"
-        fill="clear"
-        shape="round">
-        Ingresar
-      </ion-button>
-    </form>
-
-    <!-- Enlace de registro -->
-    <p class="register-link">
-      ¿No tienes cuenta? <a href="" [routerLink]="['/registro']" routerLinkActive="router-link-active" >Regístrate aquí</a>
-    </p>
+      <!-- Link de registro -->
+      <p class="register-link">
+        ¿No tienes una cuenta? <a routerLink="/registro">Regístrate</a>
+      </p>
+    </div>
   </div>
 </ion-content>
+
+
+
+
+
+
+
+  
+

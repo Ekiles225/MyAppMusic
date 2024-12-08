@@ -17,10 +17,28 @@ import { RouterLink } from '@angular/router';
 })
 export class PrincipalPage implements OnInit {
 
+
+  albums = [
+    { image: 'assets/album1.jpg', title: 'Álbum 1', artist: 'Artista 1' },
+    { image: 'assets/album2.jpg', title: 'Álbum 2', artist: 'Artista 2' },
+    { image: 'assets/album3.jpg', title: 'Álbum 3', artist: 'Artista 3' },
+  ];
+
+  songs = [
+    { title: 'Canción 1', artist: 'Artista 1' },
+    { title: 'Canción 2', artist: 'Artista 2' },
+    { title: 'Canción 3', artist: 'Artista 3' },
+  ];
+
+
   //user:any;
   constructor() { }
 
-
+  playSong(song: any) {
+    console.log(`Reproduciendo: ${song.title} de ${song.artist}`);
+    // Aquí puedes añadir la lógica para reproducir la canción.
+  }
+  
   slideOpts = {
     slidesPerView: 2.2,
     spaceBetween: 10,

@@ -1,17 +1,35 @@
 <ion-content class="background-container">
-  <!-- Video o imagen de fondo -->
-  <div class="background">
-    <!-- <video autoplay muted loop playsinline class="background-video">
-      <source src="assets/background-video.mp4" type="video/mp4" />
-    </video> -->
-    <!-- Si no tienes video, usa una imagen -->
-    <img src="assets/Talves.avif" class="background-image" />
-    
+  
+  <!-- <div class="background">
+   
+    <img src="assets/secu.jpg" class="background-image"/>
+ 
   </div>
 
-  <!-- Botón que abre la hoja modal -->
-  <ion-button expand="block" class="open-action-sheet" (click)="presentActionSheet()">
-    Iniciar sesión
-  </ion-button>
+  <button class="open-action-sheet" (click)="presentActionSheet()"> Inicia Secion
+  </button> -->
 
-</ion-content>
+  <div class="welcome-container">
+    <!-- Fondo animado -->
+    <div class="background-animation"></div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <!-- Logo central -->
+      <h1 class="app-logo">🎵 MyMusicApp</h1>
+      <p class="tagline">Tu música, tu ritmo, tu mundo.</p>
+
+      <!-- Botones de acción -->
+      <div class="action-buttons">
+        <button [routerLink]="['/login']" routerLinkActive="router-link-active"  class="btn-primary" >Iniciar Sesión</button>
+        <button [routerLink]="['/registro']" class="btn-secondary">Registrarse</button>
+      </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>© 2024 MyMusicApp. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+</ion-content> 
+  

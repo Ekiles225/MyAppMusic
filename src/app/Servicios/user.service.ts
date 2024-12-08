@@ -37,4 +37,6 @@ export class UserService {
     return this.htt.get('http://localhost:3000/api/user/'+id, { headers: header });
   }
 
+
+
 }

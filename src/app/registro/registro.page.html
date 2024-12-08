@@ -1,97 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Registro</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="register-container">
+    <!-- Fondo animado -->
+    <div class="background-animation"></div>
 
+    <!-- Formulario de registro -->
+    <div class="register-form">
+      <h1 class="app-logo">🎵 MyMusicApp</h1>
+      <p class="tagline">Únete y explora un mundo de música.</p>
 
-<ion-content class="register-container">
-  <!-- Fondo con degradado -->
-  <div class="background-gradient"></div>        
+      <!-- Campos del formulario -->
+      <div class="form-group">
+        <ion-input #nombreInput placeholder="Nombre" type="text" class="input-field"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-input #apellidoInput placeholder="Apellido" type="text" class="input-field"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-input #correoInput placeholder="Correo electrónico" type="email" class="input-field"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-input  #telefonoInput placeholder="Teléfono" type="tel" class="input-field"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-input #passwordInput  placeholder="Contraseña" type="password" class="input-field"></ion-input>
+      </div>
 
-  <!-- Formulario -->
-  <div class="register-form animate">
-    <h1>Crea tu cuenta</h1>
-        
-    <form id="registerForm">
-
-      <ion-item>
-        <ion-input 
-          #nombreInput 
-          label="Nombre" 
-          label-placement="floating" 
-          fill="outline" 
-          name="nombre"
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input 
-          #apellidoInput 
-          label="Apellido" 
-          label-placement="floating" 
-          fill="outline" 
-          name="apellido"
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input 
-          #correoInput 
-          type="email" 
-          fill="solid" 
-          label="Email" 
-          labelPlacement="floating" 
-          helperText="Enter a valid email" 
-          errorText="Invalid email" 
-          name="correo" 
-          email 
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input 
-          #telefonoInput 
-          label="Telefono" 
-          label-placement="floating" 
-          fill="outline" 
-          name="telefono"
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input 
-          #passwordInput 
-          type="password" 
-          label="Password" 
-          name="pasword"
-          required>
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-      </ion-item>
-
-      <ion-button 
-          (click)="registerUser(
+      <!-- Botón de registro -->
+      <ion-button
+      (click)="registerUser(
             nombreInput, 
             apellidoInput, 
             correoInput, 
             telefonoInput, 
             passwordInput
           )" 
-          expand="block" 
-          fill="clear" 
-          shape="round">
-          <!-- <a href="/principal"></a> -->
-          Click me
-      </ion-button>
-    </form>
+      expand="block" class="btn-register">Crear Cuenta</ion-button>
 
-    <!-- Link para volver -->
-    <p class="back-link">
-      ¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
-    </p>
+      <!-- Link para volver al login -->
+      <p class="login-link">
+        ¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
+      </p>
+    </div>
   </div>
 </ion-content>

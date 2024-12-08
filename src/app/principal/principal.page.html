@@ -1,70 +1,39 @@
-<ion-header>
-  <ion-toolbar color="light">
-    <ion-title>Mi Música</ion-title>
-    <!-- Botón para acceder al perfil -->
-    <ion-buttons slot="end">
-      <ion-button routerLink="/perfil" fill="clear">
-        <a href="" [routerLink]="['/perfil-usuario']" routerLinkActive="router-link-active" >Percil</a>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <!-- Carrusel de álbumes -->
-  <div class="horizontal-scroll">
-    <ion-card class="album-card">
-      <ion-img src="assets/album1.jpg"></ion-img>
-      <ion-card-header>
-        <ion-card-title>Álbum 1</ion-card-title>
-      </ion-card-header>
-    </ion-card>
-    <ion-card class="album-card">
-      <ion-img src="assets/album2.jpg"></ion-img>
-      <ion-card-header>
-        <ion-card-title>Álbum 2</ion-card-title>
-      </ion-card-header>
-    </ion-card>
-    <ion-card class="album-card">
-      <ion-img src="assets/album3.jpg"></ion-img>
-      <ion-card-header>
-        <ion-card-title>Álbum 3</ion-card-title>
-      </ion-card-header>
-    </ion-card>
-  </div>
+  <div class="main-container">
+    <!-- Fondo Animado -->
+    <div class="background-animation"></div>
 
-  <!-- Lista de reproducción -->
-  <ion-list>
-    <ion-item>
-      <ion-label>Playlist 1</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Playlist 2</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Playlist 3</ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <!-- Cabecera -->
+    <header class="app-header">
+      <h1>🎵 Bienvenido a MyMusicApp</h1>
+      <p>Explora y disfruta de tu música favorita</p>
+      <a href="perfil-usuario" >Perfil</a>
+    </header>
 
-<!-- Reproductor inferior -->
-<ion-footer>
-  <ion-toolbar color="light">
-    <ion-grid>
-      <ion-row class="align-center">
-        <ion-col size="2">
-          <ion-img src="assets/current-song.jpg" class="song-thumbnail"></ion-img>
-        </ion-col>
-        <ion-col size="8">
-          <div class="song-details">
-            <p class="song-title">Canción Actual</p>
-            <p class="song-artist">Artista</p>
+    <!-- Sección de Álbumes Destacados -->
+    <section class="albums-section">
+      <h2>Álbumes Destacados</h2>
+      <div class="albums-container">
+        <div class="album-card" *ngFor="let album of albums">
+          <img [src]="album.image" alt="Album Cover" class="album-cover">
+          <h3 class="album-title">{{ album.title }}</h3>
+          <p class="album-artist">{{ album.artist }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Canciones Populares -->
+    <section class="songs-section">
+      <h2>Canciones Populares</h2>
+      <div class="songs-container">
+        <div class="song-card" *ngFor="let song of songs">
+          <div class="song-info">
+            <h3 class="song-title">{{ song.title }}</h3>
+            <p class="song-artist">{{ song.artist }}</p>
           </div>
-        </ion-col>
-        <ion-col size="2" class="ion-text-end">
-          <ion-icon name="play-circle-outline" size="large"></ion-icon>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
+          <ion-icon name="play-circle" class="play-icon"></ion-icon>
+        </div>
+      </div>
+    </section>
+  </div>
+</ion-content>

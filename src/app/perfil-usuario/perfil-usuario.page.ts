@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
-  IonImg,IonList, IonItem, IonIcon, IonLabel, IonNote, IonButton, IonFooter, IonCard,
-  IonCardHeader, IonCardTitle, IonCardContent, IonThumbnail, IonInput
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,IonList, IonItem, IonIcon, IonLabel, IonButton, IonCard,
+  IonCardHeader, IonInput, IonRow, IonCol, IonListHeader, IonBadge, IonCardContent
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
+import { PersonService } from '../Servicios/person.service'; 
+
 
 
 @Component({
@@ -15,48 +16,45 @@ import { UserService } from '../Servicios/user.service';
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
-    IonButtons, IonBackButton, IonImg, IonList, IonItem, IonIcon, IonLabel, IonNote, IonButton, IonFooter,
-    IonCard, IonCardHeader, IonCardTitle, IonCardContent, RouterLink, IonThumbnail,IonInput
+    IonButtons, IonList, IonItem, IonIcon, IonLabel,  IonButton,
+    IonCard, IonCardHeader, RouterLink, IonRow, IonCol, IonListHeader, IonCardContent,
+    IonBadge,IonInput
   ]
 })
 export class PerfilUsuarioPage implements OnInit {
 
   playlists = [
-    {
-      id: 1,
-      titulo: 'Mis Favoritas',
-      descripcion: 'Canciones que escucho todos los días.',
-      imagen: 'assets/playlist1.jpg',
-      likes: 10,
-      liked: false,
-    },
-    {
-      id: 2,
-      titulo: 'Relajación',
-      descripcion: 'Música para momentos tranquilos.',
-      imagen: 'assets/playlist2.jpg',
-      likes: 5,
-      liked: false,
-    },
-    {
-      id: 3,
-      titulo: 'Energía',
-      descripcion: 'Canciones para cargar energía.',
-      imagen: 'assets/playlist3.jpg',
-      likes: 8,
-      liked: false,
-    },
+    { title: 'Mis Favoritas', songs: ['Song 1', 'Song 2', 'Song 3'], image: 'assets/playlist1.jpg' },
+    { title: 'Workout', songs: ['Song A', 'Song B'], image: 'assets/playlist2.jpg' },
+    { title: 'Relax', songs: ['Song X', 'Song Y', 'Song Z'], image: 'assets/playlist3.jpg' },
+    { title: 'Fiesta', songs: ['Song 4', 'Song 5', 'Song 6'], image: 'assets/playlist4.jpg' },
   ];
+
+  user = {
+    name: 'Juan Pérez',
+    description: 'Amante de la música y los ritmos electrónicos.',
+  };
 
   profile:any;
   personid:any;
+  editDatos:boolean=true;
+  Guardar:any
 
-  constructor(private usuarioService:UserService) { 
+  constructor(private usuarioService:UserService, private personService:PersonService) { 
     this.personid = localStorage.getItem('id');
   }
 
   ngOnInit() {
     this. viewProfile();
+  }
+
+  addPlaylist() {
+    console.log('Crear nueva playlist');
+    // Aquí puedes implementar la lógica para crear una nueva playlist.
+  }
+
+  editPerfil(){
+    this.editDatos = false;
   }
 
 
@@ -74,12 +72,32 @@ export class PerfilUsuarioPage implements OnInit {
     this.usuarioService.getOneUser(this.personid).subscribe({
       next:(data:any)=>{
         this.profile=data;
-        debugger
       },
       error:(error:any)=>{
-        debugger
+        console.log("error");
       }
     })
 
   }
+
+  updatePerson(){
+
+    if (this.editDatos) return; // Si no se está editando, no hacer nada
+
+    const nombreUsuario = this.profile.user.person.nombreUsuario;
+    const descripcion = this.profile.user.person.descripcion;
+
+
+    this.personService.updatePerson(1, nombreUsuario, descripcion).subscribe({
+      next:(data:any)=>{  
+        this.profile=data;
+        console.log('Perfil actualizado con éxito:', data);
+        debugger
+      },
+      error:(error:any)=>{
+        console.error('Error al actualizar el perfil:', error);
+          debugger
+      }
+    })
+}
 }

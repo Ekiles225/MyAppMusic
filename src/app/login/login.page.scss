@@ -1,62 +1,150 @@
-/* Fondo degradado */
+/* Contenedor Principal */
 .login-container {
-    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Fondo Animado */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e90ff);
+  background-size: 300% 300%;
+  animation: gradient-move 8s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* Animación del Fondo */
+@keyframes gradient-move {
+  0%, 100% {
+    background-position: 0% 50%;
   }
-  
-  .background-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Contenedor del formulario */
-  .login-form {
-    background: white;
-    margin: auto;
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+}
+
+/* Formulario de Login */
+.login-form {
+  width: 80%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.app-logo {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fade-in 1s ease-in-out;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #ddd;
+  animation: slide-up 1s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  /* Título */
-  .login-form h1 {
-    font-size: 24px;
-    color: #2d3436;
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* Botón de inicio de sesión */
-  .login-btn {
-    margin-top: 20px;
-    background: #0984e3;
-    color: white;
-    font-size: 18px;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .login-btn:hover {
-    background: #74b9ff;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Enlace de registro */
-  .register-link {
-    margin-top: 15px;
-    font-size: 14px;
-  }
-  
-  .register-link a {
-    color: #0984e3;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .register-link a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+/* Campos de Entrada */
+.input-field {
+  width: 100%;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.input-field::placeholder {
+  color: #ccc;
+}
+
+/* Botón de Inicio de Sesión */
+.btn-login {
+  margin-top: 10px;
+  background: #ff416c;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.6);
+}
+
+.btn-login:hover {
+  background: #ff4b2b;
+  transform: scale(1.05);
+}
+
+/* Social Login */
+.social-login {
+  margin-top: 20px;
+}
+
+.social-buttons ion-button {
+  margin: 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  width: 100px;
+}
+
+.btn-facebook {
+  background: #4267B2;
+  color: #fff;
+}
+
+.btn-facebook:hover {
+  background: #365899;
+}
+
+.btn-google {
+  background: #DB4437;
+  color: #fff;
+}
+
+.btn-google:hover {
+  background: #C33D2E;
+}
+
+/* Link de Registro */
+.register-link {
+  margin-top: 15px;
+  color: #ddd;
+}
+
+.register-link a {
+  color: #42a5f5;
+  text-decoration: none;
+}

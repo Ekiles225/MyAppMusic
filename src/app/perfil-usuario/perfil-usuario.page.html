@@ -1,62 +1,74 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+<ion-header>
+  <ion-toolbar>
     <ion-title>Perfil de Usuario</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-   <!-- Imagen de Perfil -->
-   <div class="profile-header">
-    <ion-img class="profile-picture" ></ion-img>
-    <h2 class="user-name"></h2>
-    <ion-input value="{{profile.user.person.nombreUsuario}}"></ion-input>
-    <ion-input value="{{profile.user.person.descripcion}}"></ion-input>
-  </div>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- Campo para el nombre del usuario -->
+      <ion-input class="usuario"
+        [(ngModel)]="profile.user.person.nombreUsuario"
+        [disabled]="editDatos"
+        placeholder="Nombre de usuario"
+      ></ion-input>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-label>Seguidores: 0</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Siguiendo: 55</ion-label>
+        </ion-col>
+      </ion-row>
+      <!-- Campo para la descripción -->
+      <ion-input  class="descripcion"
+        [(ngModel)]="profile.user.person.descripcion"
+        [disabled]="editDatos"
+        placeholder="Descripción"
+      ></ion-input>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Mis Playlists</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let playlist of playlists">
-            <ion-thumbnail slot="start">
-              <ion-img [src]="playlist.imagen || 'assets/default-playlist.png'"></ion-img>
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{playlist.titulo}}</h2>
-              <p>{{playlist.descripcion}}</p>
-            </ion-label>
-            <!-- Botón de Like -->
-            <ion-button fill="clear" (click)="darLike(playlist)">
-              <ion-icon slot="icon-only" [name]="playlist.liked ? 'heart' : 'heart-outline'"></ion-icon>
-            </ion-button>
-            <!-- Contador de Likes -->
-            <ion-note slot="end">{{playlist.likes}} Likes</ion-note>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-   
-  <!-- Botones de Acción -->
-  <div class="action-buttons">
-    <ion-button expand="block" fill="outline" color="primary" routerLink="/editar-perfil">
-      <ion-icon slot="start" name="create-outline"></ion-icon>
-      Editar Perfil
+  <!-- Botones centrados debajo de la descripción -->
+  <div style="text-align: center; margin-top: 16px;">
+    <!-- Botón Editar -->
+    <ion-button fill="outline" (click)="editPerfil()" style="margin-right: 8px;">
+      Editar
     </ion-button>
-    <ion-button expand="block" color="danger" href="/home">
-      <ion-icon slot="start" name="log-out-outline" ></ion-icon>
-      Cerrar Sesión
+    <!-- Botón Guardar -->
+    <ion-button fill="outline" (click)="editPerfil(); updatePerson()">
+      Guardar
     </ion-button>
   </div>
+
+  <ion-list>
+    <ion-list-header>Listas de Reproducción</ion-list-header>
+    <ion-item>
+      <ion-label>Ego</ion-label>
+      <ion-badge slot="end">0</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Erick Villa</ion-label>
+      <ion-badge slot="end">3</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>Artistas Escuchados Recientemente</ion-list-header>
+    <ion-item>
+      <ion-label>Jesse & Joy</ion-label>
+      <ion-badge slot="end">9,200,657</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sin Bandera</ion-label>
+      <ion-badge slot="end">6,341,642</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Melendi</ion-label>
+      <ion-badge slot="end">4,153,420</ion-badge>
+    </ion-item>
+  </ion-list>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-title text-center>Mi Música</ion-title>
-  </ion-toolbar>
-</ion-footer>

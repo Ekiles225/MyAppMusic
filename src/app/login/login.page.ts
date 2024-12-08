@@ -59,4 +59,15 @@ constructor(private UserService: UserService, private router:Router,
     });
     await alert.present();
 }
+
+loginWithFacebook() {
+  console.log('Iniciando sesión con Facebook...');
+  // Aquí agregarías la integración con Facebook SDK o Firebase
+}
+
+// Método para iniciar sesión con Google
+loginWithGoogle() {
+  console.log('Iniciando sesión con Google...');
+  // Aquí agregarías la integración con Google SDK o Firebase
+}
 }

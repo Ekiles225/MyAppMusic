@@ -5,10 +5,15 @@
 
     <!-- Cabecera -->
     <header class="app-header">
-      <h1>🎵 Bienvenido a MyMusicApp</h1>
+      <h1>🎵</h1>
       <p>Explora y disfruta de tu música favorita</p>
-      <a href="perfil-usuario" >Perfil</a>
     </header>
+
+    <!-- Barra de búsqueda -->
+<div class="search-bar">
+  <ion-icon name="search-outline" class="search-icon"></ion-icon>
+  <input type="text" placeholder="Buscar álbumes o canciones..." class="search-input">
+</div>
 
     <!-- Sección de Álbumes Destacados -->
     <section class="albums-section">
@@ -23,7 +28,7 @@
     </section>
 
     <!-- Sección de Canciones Populares -->
-    <section class="songs-section">
+    <!-- <section class="songs-section">
       <h2>Canciones Populares</h2>
       <div class="songs-container">
         <div class="song-card" *ngFor="let song of songs">
@@ -34,6 +39,81 @@
           <ion-icon name="play-circle" class="play-icon"></ion-icon>
         </div>
       </div>
-    </section>
+    </section> -->
+
+    <!-- lo nuevo -->
+    <div class="loader">
+      <div class="song">
+        <p class="name">Time in a Bottle</p>
+        <p class="artist">Jim Corce</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="loading">
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+        <div class="load"></div>
+      </div>
+    </div>
+    <div class="loader">
+      <div class="song">
+        <p class="name">My Way</p>
+        <p class="artist">Frank Sinatra</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="play"></div>
+    </div>
+    <div class="loader">
+      <div class="song">
+        <p class="name">Lemon Tree</p>
+        <p class="artist">Fools Garden</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="play"></div>
+    </div>
+    <div class="loader">
+      <div class="song">
+        <p class="name">Lemon Tree</p>
+        <p class="artist">Fools Garden</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="play"></div>
+    </div>
+    <div class="loader">
+      <div class="song">
+        <p class="name">Lemon Tree</p>
+        <p class="artist">Fools Garden</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="play"></div>
+    </div>
+    <div class="loader">
+      <div class="song">
+        <p class="name">Lemon Tree</p>
+        <p class="artist">Fools Garden</p>
+      </div>
+      <div class="albumcover"></div>
+      <div class="play"></div>
+    </div>  
+  
+<!-- hasta aqui lo nuevo -->
+
+    <!-- Barra de navegación inferior -->
+<!-- Barra de navegación inferior -->
+<nav class="bottom-navigation">
+  <a href="#inicio" class="nav-item">
+    <ion-icon name="home-outline" class="nav-icon"></ion-icon>
+    <span>Inicio</span>
+  </a>
+  <a href="#musica" class="nav-item">
+    <ion-icon name="musical-notes-outline" class="nav-icon"></ion-icon>
+    <span>Música</span>
+  </a>
+  <a href="perfil-usuario" class="nav-item profile">
+    <img src="assets/user-profile.jpg" alt="Perfil" class="profile-pic">
+  </a>
+</nav>
+
+
   </div>
 </ion-content>

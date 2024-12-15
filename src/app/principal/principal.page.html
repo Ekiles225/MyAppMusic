@@ -10,10 +10,10 @@
     </header>
 
     <!-- Barra de búsqueda -->
-<div class="search-bar">
-  <ion-icon name="search-outline" class="search-icon"></ion-icon>
-  <input type="text" placeholder="Buscar álbumes o canciones..." class="search-input">
-</div>
+  <div class="search-bar">
+    <ion-icon name="search-outline" class="search-icon"></ion-icon>
+    <input type="text" placeholder="Buscar álbumes o canciones..." class="search-input">
+  </div>
 
     <!-- Sección de Álbumes Destacados -->
     <section class="albums-section">
@@ -27,19 +27,7 @@
       </div>
     </section>
 
-    <!-- Sección de Canciones Populares -->
-    <!-- <section class="songs-section">
-      <h2>Canciones Populares</h2>
-      <div class="songs-container">
-        <div class="song-card" *ngFor="let song of songs">
-          <div class="song-info">
-            <h3 class="song-title">{{ song.title }}</h3>
-            <p class="song-artist">{{ song.artist }}</p>
-          </div>
-          <ion-icon name="play-circle" class="play-icon"></ion-icon>
-        </div>
-      </div>
-    </section> -->
+    <h2>Musicas</h2>
 
     <!-- lo nuevo -->
     <div class="loader">
@@ -96,24 +84,23 @@
       <div class="play"></div>
     </div>  
   
-<!-- hasta aqui lo nuevo -->
+  <!-- hasta aqui lo nuevo -->
 
-    <!-- Barra de navegación inferior -->
-<!-- Barra de navegación inferior -->
-<nav class="bottom-navigation">
-  <a href="#inicio" class="nav-item">
-    <ion-icon name="home-outline" class="nav-icon"></ion-icon>
-    <span>Inicio</span>
-  </a>
-  <a href="#musica" class="nav-item">
-    <ion-icon name="musical-notes-outline" class="nav-icon"></ion-icon>
-    <span>Música</span>
-  </a>
-  <a href="perfil-usuario" class="nav-item profile">
-    <img src="assets/user-profile.jpg" alt="Perfil" class="profile-pic">
-  </a>
-</nav>
-
+      <!-- Barra de navegación inferior -->
+  <!-- Barra de navegación inferior -->
+  <nav class="bottom-navigation">
+    <a href="#inicio" class="nav-item">
+      <ion-icon name="home-outline" class="nav-icon"></ion-icon>
+      <span>Inicio</span>
+    </a>
+    <a href="#musica" class="nav-item">
+      <ion-icon name="musical-notes-outline" class="nav-icon"></ion-icon>
+      <span>Música</span>
+    </a>
+    <a href="perfil-usuario" class="nav-item profile">
+      <img src="assets/user-profile.jpg" alt="Perfil" class="profile-pic">
+    </a>
+  </nav>
 
   </div>
 </ion-content>

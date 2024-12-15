@@ -7,6 +7,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,IonList, IonIte
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service'; 
+import { idCard } from 'ionicons/icons';
 
 
 
@@ -23,18 +24,7 @@ import { PersonService } from '../Servicios/person.service';
 })
 export class PerfilUsuarioPage implements OnInit {
 
-  playlists = [
-    { title: 'Mis Favoritas', songs: ['Song 1', 'Song 2', 'Song 3'], image: 'assets/playlist1.jpg' },
-    { title: 'Workout', songs: ['Song A', 'Song B'], image: 'assets/playlist2.jpg' },
-    { title: 'Relax', songs: ['Song X', 'Song Y', 'Song Z'], image: 'assets/playlist3.jpg' },
-    { title: 'Fiesta', songs: ['Song 4', 'Song 5', 'Song 6'], image: 'assets/playlist4.jpg' },
-  ];
-
-  user = {
-    name: 'Juan Pérez',
-    description: 'Amante de la música y los ritmos electrónicos.',
-  };
-
+  
   profile:any;
   personid:any;
   editDatos:boolean=true;
@@ -48,24 +38,24 @@ export class PerfilUsuarioPage implements OnInit {
     this. viewProfile();
   }
 
-  addPlaylist() {
-    console.log('Crear nueva playlist');
-    // Aquí puedes implementar la lógica para crear una nueva playlist.
-  }
+  // addPlaylist() {
+  //   console.log('Crear nueva playlist');
+  //   // Aquí puedes implementar la lógica para crear una nueva playlist.
+  // }
 
   editPerfil(){
     this.editDatos = false;
   }
 
 
-   darLike(playlist: any) {
-    if (playlist.liked) {
-      playlist.likes--;
-    } else {
-      playlist.likes++;
-    }
-    playlist.liked = !playlist.liked;
-  }
+  //  darLike(playlist: any) {
+  //   if (playlist.liked) {
+  //     playlist.likes--;
+  //   } else {
+  //     playlist.likes++;
+  //   }
+  //   playlist.liked = !playlist.liked;
+  // }
 
 
   viewProfile(){
@@ -84,11 +74,12 @@ export class PerfilUsuarioPage implements OnInit {
 
     if (this.editDatos) return; // Si no se está editando, no hacer nada
 
+    const id = this.profile.user.person.id; // Obteniendo el id dinámicamente
     const nombreUsuario = this.profile.user.person.nombreUsuario;
     const descripcion = this.profile.user.person.descripcion;
 
 
-    this.personService.updatePerson(1, nombreUsuario, descripcion).subscribe({
+    this.personService.updatePerson(id, nombreUsuario, descripcion).subscribe({
       next:(data:any)=>{  
         this.profile=data;
         console.log('Perfil actualizado con éxito:', data);

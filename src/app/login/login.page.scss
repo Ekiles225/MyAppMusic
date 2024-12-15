@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #2c2c2c;
   text-align: center;
 }
 
@@ -17,13 +17,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e90ff);
+  background: linear-gradient(135deg, #c4e0e5, #f1f1f1, #d4fc79);
   background-size: 300% 300%;
   animation: gradient-move 8s infinite ease-in-out;
   z-index: -1;
 }
 
-/* Animación del Fondo */
 @keyframes gradient-move {
   0%, 100% {
     background-position: 0% 50%;
@@ -33,28 +32,21 @@
   }
 }
 
+
 /* Formulario de Login */
 .login-form {
   width: 80%;
   max-width: 400px;
-  background: rgba(0, 0, 0, 0.7);
+  background: #ffffff;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .app-logo {
   font-size: 2.5rem;
   margin-bottom: 10px;
   animation: fade-in 1s ease-in-out;
-}
-
-.tagline {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  font-weight: 300;
-  color: #ddd;
-  animation: slide-up 1s ease-out;
 }
 
 @keyframes fade-in {
@@ -68,6 +60,15 @@
   }
 }
 
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #7d7d7d;
+  animation: slide-up 1s ease-out;
+}
+
 @keyframes slide-up {
   from {
     opacity: 0;
@@ -79,53 +80,79 @@
   }
 }
 
+
 /* Campos de Entrada */
 .input-field {
   width: 100%;
   margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: none;
+  background: #f7f7f7;
+  color: #2c2c2c;
+  border: 1px solid #dcdcdc;
   border-radius: 8px;
   padding: 10px;
 }
 
 .input-field::placeholder {
-  color: #ccc;
+  color: #b1b1b1;
 }
 
 /* Botón de Inicio de Sesión */
+/* Botón de Inicio de Sesión (Ionic) */
 .btn-login {
-  margin-top: 10px;
-  background: #ff416c;
-  color: white;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.6);
+  --background: #82b1ff; /* Azul pastel suave */
+  --background-hover: #5b95ff; /* Azul más intenso al pasar el mouse */
+  --color: white; /* Texto blanco */
+  --border-radius: 30px; /* Bordes redondeados */
+  --box-shadow: 0 4px 15px rgba(130, 177, 255, 0.6); /* Sombra suave */
+  --transition: background 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+  padding: 10px 20px; /* Ajustar espacio interno */
+  font-size: 1rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita para destacar */
+  width: 100%; /* Botón expandido */
 }
 
 .btn-login:hover {
-  background: #ff4b2b;
-  transform: scale(1.05);
+  --background: #5b95ff; /* Azul más intenso */
+  transform: scale(1.05); /* Efecto de ampliación suave */
+  transition: transform 0.3s ease, background 0.3s ease; /* Transición suave */
 }
+
+
 
 /* Social Login */
 .social-login {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Mayor espaciado entre botones */
+  width: 100%;
 }
 
-.social-buttons ion-button {
-  margin: 5px;
-  border-radius: 20px;
-  font-weight: bold;
-  width: 100px;
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.social-button {
+  width: calc(50% - 10px); /* Ancho uniforme con separación */
+  padding: 10px;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.social-button:hover {
+  transform: scale(1.1); /* Efecto de ampliación */
+}
 
 
 /* Link de Registro */
 .register-link {
   margin-top: 15px;
-  color: #ddd;
+  color: #7d7d7d;
 }
 
 .register-link a {
@@ -133,212 +160,6 @@
   text-decoration: none;
 }
 
-
-
-
-/* From Uiverse.io by escannord */ 
-.wrapper {
-  display: inline-flex;
-  list-style: none;
-  height: 120px;
-  width: 100%;
-  padding-top: 40px;
-  font-family: "Poppins", sans-serif;
-  justify-content: center;
+.register-link a:hover {
+  text-decoration: underline;
 }
-
-.wrapper .icon {
-  position: relative;
-  background: #050404;
-  z-index: 0;
-  border-radius: 50%;
-  margin: 10px;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .icon::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-  z-index: -1;
-  border-radius: 50%;
-  top: 100%;
-}
-.wrapper .icon:hover:after {
-  animation: bg-pos 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1 both;
-  animation-timing-function: ease-in-out;
-}
-
-.wrapper .icon:hover {
-  color: #fff;
-  overflow: unset;
-  transition: color 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  animation: overflow-toggle 0.7s;
-}
-
-.wrapper .tooltip {
-  position: absolute;
-  top: 0;
-  font-size: 14px;
-  background: #fff;
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .tooltip::before {
-  position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #fff;
-  bottom: -3px;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .icon:hover .tooltip {
-  top: -45px;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-}
-.wrapper .facebook::after {
-  background-color: #1877f2;
-}
-.wrapper .twitter::after {
-  background-color: #1da1f2;
-}
-.wrapper .instagram::after {
-  background-color: #e4405f;
-}
-
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
-  background: #1877f2;
-  color: #fff;
-}
-
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
-  color: #fff;
-}
-
-.wrapper .instagram:hover .tooltip,
-.wrapper .instagram:hover .tooltip::before {
-  background: #e4405f;
-  color: #fff;
-}
-
-@keyframes bg-pos {
-  0% {
-    top: 100%;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-@keyframes overflow-toggle {
-  0% {
-    overflow: hidden;
-  }
-  100% {
-    overflow: visible;
-  }
-}
-
-
-/* ediciones adicionales  */ 
-/* From Uiverse.io by Lokesh1379 */ 
-/* From Uiverse.io by R0G3RF4 */ 
-/* From Uiverse.io by JohnnyCSilva */ 
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-}
-
-.flex-row > div > label {
-  font-size: 14px;
-  color: black;
-  font-weight: 400;
-}
-
-.span {
-  font-size: 14px;
-  margin-left: 5px;
-  color: #2d79f3;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.button-submit {
-  margin: 20px 0 10px 0;
-  background-color: #151717;
-  border: none;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 10px;
-  height: 50px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.p {
-  text-align: center;
-  color: black;
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-.btn {
-  margin-top: 10px;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  gap: 10px;
-  border: 1px solid #ededef;
-  background-color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.btn:hover {
-  border: 1px solid #2d79f3;
-  ;
-}
-
-    

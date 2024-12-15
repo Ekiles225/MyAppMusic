@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #2c2c2c; /* Texto oscuro para un diseño moderno */
   text-align: center;
 }
 
@@ -17,13 +17,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b, #1e90ff);
+  background: linear-gradient(135deg, #c4e0e5, #f1f1f1, #d4fc79); /* Degradado minimalista */
   background-size: 300% 300%;
   animation: gradient-move 8s infinite ease-in-out;
   z-index: -1;
 }
 
-/* Animación del Fondo */
 @keyframes gradient-move {
   0%, 100% {
     background-position: 0% 50%;
@@ -37,15 +36,16 @@
 .register-form {
   width: 80%;
   max-width: 400px;
-  background: rgba(0, 0, 0, 0.7);
+  background: #ffffff; /* Fondo blanco limpio */
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombras suaves */
 }
 
 .app-logo {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #5f5f5f; /* Color gris sobrio */
   animation: fade-in 1s ease-in-out;
 }
 
@@ -53,7 +53,7 @@
   font-size: 1rem;
   margin-bottom: 20px;
   font-weight: 300;
-  color: #ddd;
+  color: #7d7d7d; /* Texto gris claro */
   animation: slide-up 1s ease-out;
 }
 
@@ -61,38 +61,48 @@
 .input-field {
   width: 100%;
   margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: none;
+  background: #f7f7f7; /* Fondo claro */
+  color: #2c2c2c; /* Texto oscuro */
+  border: 1px solid #dcdcdc; /* Bordes minimalistas */
   border-radius: 8px;
   padding: 10px;
 }
 
 .input-field::placeholder {
-  color: #ccc;
+  color: #b1b1b1; /* Texto placeholder suave */
 }
 
 /* Botón de Registro */
 .btn-register {
-  margin-top: 10px;
-  background: #1e90ff;
-  color: white;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.6);
+  --background: #82b1ff; /* Azul pastel suave */
+  --background-hover: #5b95ff; /* Azul más intenso al pasar el mouse */
+  --color: white; /* Texto blanco */
+  --border-radius: 30px; /* Bordes redondeados */
+  --box-shadow: 0 4px 15px rgba(130, 177, 255, 0.6); /* Sombra suave */
+  --transition: background 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+  padding: 10px 20px; /* Ajustar espacio interno */
+  font-size: 1rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita para destacar */
+  width: 100%; /* Botón expandido */
 }
 
 .btn-register:hover {
-  background: #1c86e6;
-  transform: scale(1.05);
+  --background: #5b95ff; /* Azul más intenso */
+  transform: scale(1.05); /* Efecto de ampliación suave */
+  transition: transform 0.3s ease, background 0.3s ease; /* Transición suave */
 }
 
 /* Link de Login */
 .login-link {
   margin-top: 15px;
-  color: #ddd;
+  color: #7d7d7d; /* Gris claro */
 }
 
 .login-link a {
-  color: #42a5f5;
+  color: #42a5f5; /* Azul suave */
   text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }

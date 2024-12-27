@@ -1,55 +1,109 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {IonContent,IonIcon} from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonThumbnail, IonLabel} from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { library, playCircle, radio, search } from 'ionicons/icons';
+import { DeezerService } from 'src/app/Servicios/deezer.service';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule,
-    IonIcon, RouterLink
-  ]
+  imports: [IonContent, CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel]
 })
 export class PrincipalPage implements OnInit {
 
+  canciones: any[] = [];
+  searchQuery: string = ''; // Término de búsqueda
+  cancionesFiltradas: any[] = []; // Canciones que se mostrarán según la búsqueda
+  artistInfo: any = null; // Información del artista
+  cancionSeleccionada: any = null;
+  audio: HTMLAudioElement | null = null; // Referencia al objeto Audio actual
 
-  albums = [
-    { image: 'assets/album1.jpg', title: 'Álbum 1', artist: 'Artista 1' },
-    { image: 'assets/album2.jpg', title: 'Álbum 2', artist: 'Artista 2' },
-    { image: 'assets/album3.jpg', title: 'Álbum 3', artist: 'Artista 3' },
-  ];
-
-  songs = [
-    { title: 'Canción 1', artist: 'Artista 1' },
-    { title: 'Canción 2', artist: 'Artista 2' },
-    { title: 'Canción 3', artist: 'Artista 3' },
-  ];
-
-
-  //user:any;
-  constructor() { 
+  constructor(private deezerService: DeezerService) {
     addIcons({ library, playCircle, radio, search });
   }
 
-  playSong(song: any) {
-    console.log(`Reproduciendo: ${song.title} de ${song.artist}`);
-    // Aquí puedes añadir la lógica para reproducir la canción.
-  }
-  
   slideOpts = {
     slidesPerView: 2.2,
     spaceBetween: 10,
   };
 
   ngOnInit() {
-    // this.user = localStorage.getItem('username') esto es para mostar el usuario en una esquinita
-    //luego esta variable user la uso en el html <span>user</span>
+    this.cargarCanciones();
   }
 
+  cargarCanciones() {
+    this.deezerService.getSongs('lo último').subscribe(
+      (data) => {
+        this.canciones = data;
+        this.cancionesFiltradas = [...this.canciones]; // Copia inicial
+        console.log(this.canciones);
+      },
+      (error) => {
+        console.error('Error al cargar las canciones:', error);
+      }
+    );
+  }
+
+  buscar() {
+    const query = this.searchQuery.trim().toLowerCase();
+
+    if (query) {
+      this.deezerService.getSongs(query).subscribe(
+        (data) => {
+          this.cancionesFiltradas = data;
+          if (this.cancionesFiltradas.length === 0) {
+            console.warn('No se encontraron canciones para la búsqueda.');
+          }
+        },
+        (error) => {
+          console.error('Error en la búsqueda:', error);
+        }
+      );
+    } else {
+      console.log('Por favor, introduce un término de búsqueda.');
+    }
+  }
+
+  reproducir(cancion: any) {
+    if (this.audio) {
+      this.audio.pause(); // Pausar la canción actual
+    }
+    this.cancionSeleccionada = cancion;
+    this.audio = new Audio(cancion.mp3);
+    this.audio.play();
+  }
+
+  play() {
+    if (this.audio) {
+      this.audio.play();
+      this.startProgressBar();
+    }
+  }
+
+  pause() {
+    if (this.audio) {
+      this.audio.pause();
+      this.stopProgressBar();
+    }
+  }
+
+  startProgressBar() {
+    const progressBar = document.querySelector('.progress') as HTMLElement;
+    if (progressBar) {
+      progressBar.style.animationPlayState = 'running';
+    }
+  }
+
+  stopProgressBar() {
+    const progressBar = document.querySelector('.progress') as HTMLElement;
+    if (progressBar) {
+      progressBar.style.animationPlayState = 'paused';
+    }
+  }
 }
 

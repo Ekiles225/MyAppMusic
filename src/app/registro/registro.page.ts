@@ -41,7 +41,6 @@ export class RegistroPage implements OnInit {
           this.showAlert('Error', 'Ups ha pasado algo, vuelva a intentarlo');
 
         }
-
     });
   }
 
@@ -53,9 +52,4 @@ export class RegistroPage implements OnInit {
     });
     await alert.present();
   }
-//FIN DEL METODO  
-
-
-
-
 }

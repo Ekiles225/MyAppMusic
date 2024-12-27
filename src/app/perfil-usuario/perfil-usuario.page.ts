@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,IonList, IonItem, IonIcon, IonLabel, IonButton, IonCard,
+import {
+  IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonList, IonItem, IonIcon, IonLabel, IonButton, IonCard,
   IonCardHeader, IonInput, IonRow, IonCol, IonListHeader, IonBadge, IonCardContent
 } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
-import { PersonService } from '../Servicios/person.service'; 
+import { PersonService } from '../Servicios/person.service';
 import { idCard } from 'ionicons/icons';
 
 
@@ -17,60 +18,46 @@ import { idCard } from 'ionicons/icons';
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
-    IonButtons, IonList, IonItem, IonIcon, IonLabel,  IonButton,
+    IonButtons, IonList, IonItem, IonIcon, IonLabel, IonButton,
     IonCard, IonCardHeader, RouterLink, IonRow, IonCol, IonListHeader, IonCardContent,
-    IonBadge,IonInput
+    IonBadge, IonInput
   ]
 })
 export class PerfilUsuarioPage implements OnInit {
 
-  
-  profile:any;
-  personid:any;
-  editDatos:boolean=true;
-  Guardar:any
 
-  constructor(private usuarioService:UserService, private personService:PersonService) { 
+  profile: any;
+  personid: any;
+  editDatos: boolean = true;
+  Guardar: any
+
+  constructor(private usuarioService: UserService, private personService: PersonService) {
     this.personid = localStorage.getItem('id');
   }
 
   ngOnInit() {
-    this. viewProfile();
+    this.viewProfile();
   }
 
-  // addPlaylist() {
-  //   console.log('Crear nueva playlist');
-  //   // Aquí puedes implementar la lógica para crear una nueva playlist.
-  // }
 
-  editPerfil(){
+  editPerfil() {
     this.editDatos = false;
   }
 
 
-  //  darLike(playlist: any) {
-  //   if (playlist.liked) {
-  //     playlist.likes--;
-  //   } else {
-  //     playlist.likes++;
-  //   }
-  //   playlist.liked = !playlist.liked;
-  // }
-
-
-  viewProfile(){
+  viewProfile() {
     this.usuarioService.getOneUser(this.personid).subscribe({
-      next:(data:any)=>{
-        this.profile=data;
+      next: (data: any) => {
+        this.profile = data;
       },
-      error:(error:any)=>{
+      error: (error: any) => {
         console.log("error");
       }
     })
 
   }
 
-  updatePerson(){
+  updatePerson() {
 
     if (this.editDatos) return; // Si no se está editando, no hacer nada
 
@@ -80,15 +67,15 @@ export class PerfilUsuarioPage implements OnInit {
 
 
     this.personService.updatePerson(id, nombreUsuario, descripcion).subscribe({
-      next:(data:any)=>{  
-        this.profile=data;
+      next: (data: any) => {
+        this.profile = data;
         console.log('Perfil actualizado con éxito:', data);
         debugger
       },
-      error:(error:any)=>{
+      error: (error: any) => {
         console.error('Error al actualizar el perfil:', error);
-          debugger
+        debugger
       }
     })
-}
+  }
 }

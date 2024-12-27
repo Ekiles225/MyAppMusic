@@ -13,14 +13,16 @@ import { Router, RouterLink } from '@angular/router';
 })
 
 export class HomePage {
+  canciones: any[] = []; // Asegúrate de tener esta propiedad para las canciones
+  cancionesFiltradas: any[] = []; // Asegúrate de tener esta propiedad para las canciones filtradas
+ 
+
   constructor(private renderer: Renderer2, private routerLink: Router) {
   }
  
-
-  ngOnInit() {
-  
+  async ngOnInit() {
+    
   }
 
-  
 
 }

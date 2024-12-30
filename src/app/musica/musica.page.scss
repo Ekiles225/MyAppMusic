@@ -1,0 +1,198 @@
+/* From Uiverse.io by andrew-demchenk0 */ 
+.card {
+    --main-color: #1a1a1a;
+    --bg-color: #f5f5f5;
+    --sub-main-color: #a6a6a6;
+    --highlight-color: #ff4081;
+    --accent-color: #3f51b5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 20%;
+    transition: background 0.3s ease;
+   
+  }
+  
+  ion-content {
+    --overflow: hidden; /* Oculta la barra de desplazamiento en Ionic */
+    
+  }
+  
+  .card__menu {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .card__menu:hover {
+    transform: scale(1.1);
+  }
+  
+  .card__img {
+    height: 224px;
+    width: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    background: var(--highlight-color);
+    border-radius: 100%;
+    transition: background 0.3s ease;
+  }
+  
+  .card__img svg {
+    width: 154px;
+    height: 154px;
+    border-radius: 100%;
+  }
+  
+  .card__title {
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .card__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--sub-main-color);
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .card__subtitle:hover {
+    color: var(--highlight-color);
+  }
+  
+  .card__wrapperr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10%;
+  }
+  
+  .card__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30%;
+    position: fixed;
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100%;
+    max-width: 100%; 
+    background: var(--bg-color);
+    border-radius: 10px 10px 0 0; 
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+    transition: background 0.3s ease;
+  }
+  
+  .card__time {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--main-color);
+    transition: color 0.3s ease;
+  }
+  
+  .card__timeline {
+    width: 100%;
+    height: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .card__timeline progress {
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+  }
+  
+  .card__timeline progress::-webkit-progress-bar {
+    background-color: var(--sub-main-color);
+    border-radius: 100px;
+  }
+  
+  .card__timeline progress::-webkit-progress-value {
+    background-color: var(--highlight-color);
+    border-radius: 100px;
+  }
+  
+  .card__btn path {
+    fill: var(--main-color);
+    transition: fill 0.3s ease;
+  }
+  
+  .card__btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .card__btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .card__btn-play {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+  
+  .card__btn-play:hover {
+    background: var(--highlight-color);
+  }
+  
+  .recent-songs {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recent-songs__title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--main-color);
+    margin-bottom: 10px;
+  }
+  
+  .recent-songs__list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recent-songs__item {
+    font-size: 16px;
+    color: var(--sub-main-color);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--sub-main-color);
+  }
+  
+  .recent-songs__item:last-child {
+    border-bottom: none;
+  }
+  
+  
+  
+  

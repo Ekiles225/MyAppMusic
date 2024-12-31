@@ -8,7 +8,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service';
-import { idCard } from 'ionicons/icons';
+
 
 
 
@@ -23,6 +23,8 @@ import { idCard } from 'ionicons/icons';
     IonBadge, IonInput
   ]
 })
+
+
 export class PerfilUsuarioPage implements OnInit {
 
 

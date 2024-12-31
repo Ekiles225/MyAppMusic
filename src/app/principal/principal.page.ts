@@ -12,7 +12,7 @@ import { DeezerService } from 'src/app/Servicios/deezer.service';
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel]
+  imports: [IonContent, CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel, RouterLink]
 })
 export class PrincipalPage implements OnInit {
 

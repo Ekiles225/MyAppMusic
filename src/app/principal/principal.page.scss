@@ -1,5 +1,4 @@
 /* Contenedor Principal */
-
 .main-container {
   position: relative;
   min-height: 100vh;
@@ -364,7 +363,7 @@
 .audio-playerr {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Asegura que los controles se mantengan en su lugar */
   width: 100%;
   height: 60px;
   background-color: #76a7f5d3;
@@ -378,6 +377,8 @@
   z-index: 1001; 
   margin-bottom: 12%;
 }
+
+
 
 .album-coverr {
   width: 50px;
@@ -393,12 +394,16 @@
 .player-controls {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;flex-grow: 1;
+  display: flex;
   flex-direction: column;
+  margin-right: 10px; 
 }
 
 .song-info {
   margin-bottom: 4px;
 }
+
 
 .song-title {
   font-size: 16px;
@@ -462,6 +467,39 @@ button {
     transform: scaleX(1);
   }
 }
+// sobre los controles
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre los controles */
+  color: rgb(0, 0, 0);
+}
+
+.air {
+  height: 100%;
+  width: 54px;
+}
+
+.controls svg {
+  cursor: pointer;
+  transition: 0.1s;
+  margin-bottom: 5px;
+}
+
+.controls svg:hover {
+  color: #1db954;
+}
+
+.greenline {
+  background-color: #ff7b00;
+  height: 20px;
+  width: 2px;
+  position: relative;
+  transform-origin: bottom;
+}
+
+
 
 
 /* navegation */ 

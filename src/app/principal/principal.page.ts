@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonItem, IonThumbnail, IonLabel} from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
-import { addIcons } from 'ionicons';
-import { library, playCircle, radio, search } from 'ionicons/icons';
 import { DeezerService } from 'src/app/Servicios/deezer.service';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-principal',
@@ -22,9 +21,9 @@ export class PrincipalPage implements OnInit {
   artistInfo: any = null; // Información del artista
   cancionSeleccionada: any = null;
   audio: HTMLAudioElement | null = null; // Referencia al objeto Audio actual
+  isPlaying: boolean = false;
 
   constructor(private deezerService: DeezerService) {
-    addIcons({ library, playCircle, radio, search });
   }
 
   slideOpts = {
@@ -69,6 +68,24 @@ export class PrincipalPage implements OnInit {
     }
   }
 
+  siguienteCancion() {
+    const index = this.cancionesFiltradas.indexOf(this.cancionSeleccionada);
+    if (index !== -1 && index < this.cancionesFiltradas.length - 1) {
+      this.reproducir(this.cancionesFiltradas[index + 1]);
+    } else {
+      console.log('No hay más canciones en la lista.');
+    }
+  }
+
+  cancionAnterior() {
+    const index = this.cancionesFiltradas.indexOf(this.cancionSeleccionada);
+    if (index > 0) {
+      this.reproducir(this.cancionesFiltradas[index - 1]);
+    } else {
+      console.log('No hay canciones anteriores en la lista.');
+    }
+  }
+
   reproducir(cancion: any) {
     if (this.audio) {
       this.audio.pause(); // Pausar la canción actual
@@ -76,33 +93,35 @@ export class PrincipalPage implements OnInit {
     this.cancionSeleccionada = cancion;
     this.audio = new Audio(cancion.mp3);
     this.audio.play();
+    this.audio.onended = () => {
+      this.siguienteCancion(); // Reproducir la siguiente canción al terminar la actual
+    };
   }
 
   play() {
     if (this.audio) {
       this.audio.play();
-      this.startProgressBar();
     }
   }
 
   pause() {
     if (this.audio) {
       this.audio.pause();
-      this.stopProgressBar();
     }
   }
 
-  startProgressBar() {
-    const progressBar = document.querySelector('.progress') as HTMLElement;
-    if (progressBar) {
-      progressBar.style.animationPlayState = 'running';
+  pauseYplay(){
+    this.isPlaying = !this.isPlaying;
+    if(this.isPlaying){
+      this.play();
+    }else{
+      this.pause();
     }
   }
 
-  stopProgressBar() {
-    const progressBar = document.querySelector('.progress') as HTMLElement;
-    if (progressBar) {
-      progressBar.style.animationPlayState = 'paused';
+  mute() {
+    if (this.audio) {
+      this.audio.muted = !this.audio.muted;
     }
   }
 }

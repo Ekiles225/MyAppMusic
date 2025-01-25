@@ -25,8 +25,9 @@ export const routes: Routes = [
   {
     path: 'perfil-usuario',
     loadComponent: () => import('./perfil-usuario/perfil-usuario.page').then( m => m.PerfilUsuarioPage)
-  },  {
-    path: 'musica',
+  },
+  {
+    path: 'musica/:genre',
     loadComponent: () => import('./musica/musica.page').then( m => m.MusicaPage)
   },
 

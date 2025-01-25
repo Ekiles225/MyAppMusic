@@ -26,13 +26,14 @@ export class PerfilUsuarioPage implements OnInit {
   profile: any;
   personid: any;
   editDatos: boolean = true;
-  playlists: any[] = [
-    { name: 'Playlist 1', image: 'assets/image.png' },
-    { name: 'Playlist 2', image: 'assets/principalMusica.jpg' },
-    // Agrega más playlists según sea necesario
-  ];
 
-  isMenuOpen: boolean[] = [];
+  
+    playlists: any[] = [
+      { name: 'Bachata', genre: 'bachata' },
+      { name: 'Rock', genre: 'rock' },
+      { name: 'Pop', genre: 'pop' },
+      // Agrega más playlists según sea necesario
+    ];
 
   constructor(private usuarioService: UserService, private personService: PersonService) {
     this.personid = localStorage.getItem('id');
@@ -50,6 +51,7 @@ export class PerfilUsuarioPage implements OnInit {
   editPerfil() {
     this.editDatos = false;
   }
+  
   viewProfile() {
     this.usuarioService.getOneUser(this.personid).subscribe({
       next: (data: any) => {
@@ -60,6 +62,7 @@ export class PerfilUsuarioPage implements OnInit {
       }
     })
   }
+
   updatePerson() {
     if (this.editDatos) return; // Si no se está editando, no hacer nada
     const id = this.profile.user.person.id; // Obteniendo el id dinámicamente
@@ -73,30 +76,7 @@ export class PerfilUsuarioPage implements OnInit {
       error: (error: any) => {
         console.error('Error al actualizar el perfil:', error);
       }
-    })
-  }
-
-  // muestra de los playList 
-
-  openMenu(index: number) {
-    this.isMenuOpen[index] = true;
-  }
-
-  closeMenu(index: number) {
-    this.isMenuOpen[index] = false;
-  }
-
-  editPlaylist(index: number) {
-    // Lógica para editar la playlist
-    console.log('Editar playlist:', this.playlists[index]);
-    this.closeMenu(index);
-  }
-
-  deletePlaylist(index: number) {
-    // Lógica para eliminar la playlist
-    console.log('Eliminar playlist:', this.playlists[index]);
-    this.playlists.splice(index, 1);
-    this.closeMenu(index);
+    });
   }
 
 }

@@ -7,7 +7,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service';
-
+import { RouterModule } from '@angular/router'; // Importa RouterModule
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -15,7 +15,7 @@ import { PersonService } from '../Servicios/person.service';
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
   imports: [IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
-    RouterLink
+    RouterLink, RouterModule
   ]
 })
 
@@ -49,8 +49,6 @@ export class PerfilUsuarioPage implements OnInit {
     this.viewProfile();
     console.log('Playlists cargadas:', this.playlists);
   }
-
-
 
   // cosas de la edicion 
   editPerfil() {

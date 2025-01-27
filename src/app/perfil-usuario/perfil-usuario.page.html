@@ -72,7 +72,7 @@
 
     <ion-item *ngFor="let playlist of playlists">
       <ion-avatar slot="start">
-        <img [src]="playlist.image || 'assets/default-playlist.png'" alt="Playlist Cover" />
+        <img [src]="playlist.image || 'assets/musica2.jpg'" alt="Playlist Cover" />
       </ion-avatar>
       <ion-label>{{ playlist.name }}</ion-label>
       <button class="BugButton"  fill="clear" slot="end" [routerLink]="['/musica', playlist.genre]">
@@ -83,5 +83,4 @@
     </ion-item>
   </ion-list>
 
-  <!-- From Uiverse.io by vinodjangid07 --> 
-
+</div>

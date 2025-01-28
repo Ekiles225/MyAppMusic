@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy  } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AnimationController, IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonAvatar, IonLabel, IonButton, IonList, IonImg, IonModal, IonButtons, IonTabButton } from '@ionic/angular/standalone';
@@ -14,7 +14,7 @@ import { AudioService } from '../Servicios/audio.service';
   standalone: true,
   imports: [IonTabButton, IonButton, IonLabel, IonAvatar, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
 })
-export class MusicaPage implements OnInit  {
+export class MusicaPage implements OnInit {
 
   genre: string = ''; // Género recibido
   songs: any[] = []; // Canciones filtradas
@@ -28,12 +28,12 @@ export class MusicaPage implements OnInit  {
     private deezerService: DeezerService,
     private route: ActivatedRoute,
     private animationCtrl: AnimationController
-  
+
   ) { }
 
   ngOnInit() {
-     // Obtener el género desde la URL
-     this.route.paramMap.subscribe(params => {
+    // Obtener el género desde la URL
+    this.route.paramMap.subscribe(params => {
       this.genre = params.get('genre') || ''; // Captura el género
       this.fetchSongs(); // Llama al método para obtener canciones
     });
@@ -52,20 +52,20 @@ export class MusicaPage implements OnInit  {
       });
     }
   }
-  
+
   playSong(mp3Url: string) {
     const cancion = this.songs.find(song => song.mp3 === mp3Url);
     if (cancion) {
       this.reproducir(cancion); // Llama al método reproducir con la canción seleccionada
     }
   }
-  
+
   siguienteCancion() {
     if (!this.cancionSeleccionada || this.songs.length === 0) {
       console.log('No hay canciones o no hay canción seleccionada.');
       return;
     }
-  
+
     const index = this.songs.indexOf(this.cancionSeleccionada); // Busca el índice en la lista principal
     if (index !== -1 && index < this.songs.length - 1) {
       const siguiente = this.songs[index + 1]; // Obtén la siguiente canción
@@ -79,7 +79,7 @@ export class MusicaPage implements OnInit  {
       console.log('No hay canciones o no hay canción seleccionada.');
       return;
     }
-  
+
     const index = this.songs.indexOf(this.cancionSeleccionada); // Busca el índice en la lista principal
     if (index > 0) {
       const anterior = this.songs[index - 1]; // Obtén la canción anterior
@@ -89,7 +89,7 @@ export class MusicaPage implements OnInit  {
     }
   }
 
-  
+
   reproducir(cancion: any) {
     if (this.audio) {
       this.audio.pause(); // Pausar la canción actual
@@ -123,7 +123,7 @@ export class MusicaPage implements OnInit  {
       this.audio?.pause();
     }
   }
-  
+
   mute() {
     if (this.audio) {
       this.audio.muted = !this.audio.muted;

@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonList, 
-  IonItem, 
-  IonLabel, 
-  IonAvatar, 
-  IonButton, 
-  IonAlert, 
-  AnimationController
+  IonList,
+  IonItem,
+  IonLabel,
+  IonAvatar,
+  IonButton,
+  IonAlert,
+  AnimationController, IonImg
 } from '@ionic/angular/standalone';
 
 import { RouterLink } from '@angular/router';
@@ -20,7 +20,7 @@ import { PersonService } from '../Servicios/person.service';
   templateUrl: './perfil-usuario.page.html',
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
-  imports: [IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
+  imports: [IonImg, IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
     RouterLink
   ]
 })

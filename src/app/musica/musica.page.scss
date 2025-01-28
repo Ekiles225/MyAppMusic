@@ -1,347 +1,9 @@
-/* From Uiverse.io by andrew-demchenk0 */ 
-.card {
-    --main-color: #1a1a1a;
-    --bg-color: #f5f5f5;
-    --sub-main-color: #a6a6a6;
-    --highlight-color: #ff4081;
-    --accent-color: #3f51b5;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 20%;
-    transition: background 0.3s ease;
-   
-  }
-  
-  // ion-content {
-  //   // --overflow: hidden; /* Oculta la barra de desplazamiento en Ionic */
-    
-  // }
-  
-  .card__menu {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .card__menu:hover {
-    transform: scale(1.1);
-  }
-  
-  .card__img {
-    height: 224px;
-    width: 224px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: auto;
-    background: var(--highlight-color);
-    border-radius: 100%;
-    transition: background 0.3s ease;
-  }
-  
-  .card__img svg {
-    width: 154px;
-    height: 154px;
-    border-radius: 100%;
-  }
-  
-  .card__title {
-    font-weight: 500;
-    font-size: 28px;
-    color: var(--main-color);
-    text-align: center;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
-  }
-  
-  .card__subtitle {
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--sub-main-color);
-    text-align: center;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .card__subtitle:hover {
-    color: var(--highlight-color);
-  }
-  
-  .card__wrapperr{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10%;
-  }
-  
-  .card__wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-top: 30%;
-    position: fixed;
-    bottom: 0; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 100%;
-    max-width: 100%; 
-    background: var(--bg-color);
-    border-radius: 10px 10px 0 0; 
-    padding: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1000; 
-    transition: background 0.3s ease;
-  }
-  
-  .card__time {
-    font-weight: 400;
-    font-size: 12px;
-    color: var(--main-color);
-    transition: color 0.3s ease;
-  }
-  
-  .card__timeline {
-    width: 100%;
-    height: 4px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .card__timeline progress {
-    width: 100%;
-    height: 100%;
-    border-radius: 100px;
-  }
-  
-  .card__timeline progress::-webkit-progress-bar {
-    background-color: var(--sub-main-color);
-    border-radius: 100px;
-  }
-  
-  .card__timeline progress::-webkit-progress-value {
-    background-color: var(--highlight-color);
-    border-radius: 100px;
-  }
-  
-  .card__btn path {
-    fill: var(--main-color);
-    transition: fill 0.3s ease;
-  }
-  
-  .card__btn {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .card__btn:hover {
-    transform: scale(1.1);
-  }
-  
-  .card__btn-play {
-    width: 60px;
-    height: 60px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background 0.3s ease;
-  }
-  
-  .card__btn-play:hover {
-    background: var(--highlight-color);
-  }
-  
-  .recent-songs {
-    margin-top: 20px;
-    padding: 20px;
-    background: var(--bg-color);
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .recent-songs__title {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--main-color);
-    margin-bottom: 10px;
-  }
-  
-  .recent-songs__list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .recent-songs__item {
-    font-size: 16px;
-    color: var(--sub-main-color);
-    padding: 10px 0;
-    border-bottom: 1px solid var(--sub-main-color);
-  }
-  
-  .recent-songs__item:last-child {
-    border-bottom: none;
-  }
-  
-  
-
-.background-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #c4e0e5, #f1f1f1, #d4fc79);
-  background-size: 300% 300%;
-  animation: gradient-move 8s infinite ease-in-out;
-  z-index: -1;
-}
-
-@keyframes gradient-move {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-
-
-
-.container {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  border-radius: 50%;
-}
-
-.play-btn {
-  position: absolute;
-  appearance: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient( #f1f1f1, #92c51a);
-  cursor: pointer;
-  outline: none;
-}
-
-.play-btn::before {
-  content: "";
-  position: absolute;
-  width: 93%;
-  height: 93%;
-  background-color: #000;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.play-btn:checked {
-  animation: borderAnimate 700ms ease-in-out 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes borderAnimate {
-  0% {
-    transform: rotate(0);
-    background: conic-gradient(#ff6347, transparent 20%);
-  }
-
-  80% {
-    background: conic-gradient(#ff6347, transparent 90%);
-  }
-
-  100% {
-    transform: rotate(360deg);
-    background: conic-gradient(#ff6347, #ff6347);
-  }
-}
-
-.play-icon {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 60%;
-  top: 50%;
-  background-color: #82b1ff;
-  transform: translate(-60%, -50%) rotate(90deg);
-  clip-path: polygon(50% 15%, 0% 100%, 100% 100%);
-  transition: all 400ms ease-in-out;
-  cursor: pointer;
-}
-
-.play-btn:checked + .play-icon {
-  clip-path: polygon(0 100%, 0% 100%, 100% 100%);
-}
-
-.pause-icon {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-}
-
-.pause-icon::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 100%;
-  background-color: #82b1ff;
-  left: 0;
-}
-
-.pause-icon::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 100%;
-  background-color: #82b1ff;
-  right: 0;
-}
-
-.play-btn:checked ~ .pause-icon::before {
-  animation: reveal 300ms ease-in-out 350ms 1;
-  animation-fill-mode: forwards;
-}
-
-.play-btn:checked ~ .pause-icon::after {
-  animation: reveal 300ms ease-in-out 600ms 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes reveal {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 35%;
-  }
-}
-
-
-
-/* */ 
+/* */
 .audio-playerr {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Asegura que los controles se mantengan en su lugar */
+  justify-content: space-between;
+  /* Asegura que los controles se mantengan en su lugar */
   width: 100%;
   height: 60px;
   background-color: #76a7f5d3;
@@ -352,8 +14,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1001; 
-  margin-bottom: 12%;
+  z-index: 1;
 }
 
 
@@ -365,17 +26,18 @@
   margin-right: 12px;
 }
 
-.album-coverr img	{
+.album-coverr img {
   border-radius: 8px;
 }
 
 .player-controls {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;flex-grow: 1;
+  flex-direction: column;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .song-info {
@@ -393,23 +55,6 @@
   font-size: 12px;
   color: #000000;
   margin: 0;
-}
-
-.progress-barr {
-  width: 100%;
-  height: 4px;
-  background-color: #4f4f4f;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.progress {
-  width: 50%;
-  height: 100%;
-  background-color: #1db954;
-  transform-origin: left;
-  animation: progress-animation 10s linear infinite;
-  animation-play-state: paused; /* Inicialmente en pausa */
 }
 
 .buttonss {
@@ -445,12 +90,14 @@ button {
     transform: scaleX(1);
   }
 }
+
 // sobre los controles
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px; /* Espacio entre los controles */
+  gap: 8px;
+  /* Espacio entre los controles */
   color: rgb(0, 0, 0);
 }
 
@@ -477,7 +124,7 @@ button {
   transform-origin: bottom;
 }
 
-/* boton regresar */ 
+/* boton regresar */
 .button {
   display: block;
   position: relative;
@@ -550,4 +197,3 @@ button {
   transition: 0.4s;
   transform: translateX(-56px);
 }
-

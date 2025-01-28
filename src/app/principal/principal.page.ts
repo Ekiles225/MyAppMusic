@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonItem, IonThumbnail, IonLabel} from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonThumbnail, IonLabel } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { DeezerService } from 'src/app/Servicios/deezer.service';
 import { Router } from 'express';
@@ -110,11 +110,11 @@ export class PrincipalPage implements OnInit {
     }
   }
 
-  pauseYplay(){
+  pauseYplay() {
     this.isPlaying = !this.isPlaying;
-    if(this.isPlaying){
+    if (this.isPlaying) {
       this.play();
-    }else{
+    } else {
       this.pause();
     }
   }

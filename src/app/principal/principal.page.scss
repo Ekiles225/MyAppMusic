@@ -3,15 +3,20 @@
   position: relative;
   min-height: 100vh;
   padding: 10px;
-  color: #2c2c2c; /* Texto oscuro */
-  overflow-y: scroll; /* Asegura que el contenido sea desplazable */
+  color: #2c2c2c;
+  /* Texto oscuro */
+  overflow-y: scroll;
+  /* Asegura que el contenido sea desplazable */
   z-index: 1;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
 }
 
 .main-container::-webkit-scrollbar {
-  display: none; /* Safari y Chrome */
+  display: none;
+  /* Safari y Chrome */
 }
 
 
@@ -29,16 +34,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #c4e0e5, #f1f1f1, #d4fc79); /* Colores pastel */
+  background: linear-gradient(135deg, #c4e0e5, #f1f1f1, #d4fc79);
+  /* Colores pastel */
   background-size: 300% 300%;
   animation: gradient-move 8s infinite ease-in-out;
   z-index: -1;
 }
 
 @keyframes gradient-move {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -50,41 +59,53 @@
   margin-bottom: 20px;
 }
 
-.app-header p{
+.app-header p {
   color: #5f5f5fd2;
   font-family: cursive;
   font-size: 15px;
 }
+
 .app-header h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #5f5f5f; /* Gris oscuro */
+  color: #5f5f5f;
+  /* Gris oscuro */
   display: inline-block;
   animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-30px);
   }
+
   60% {
     transform: translateY(-15px);
   }
 }
 
 /* Sección de Álbumes */
-.albums-section, .songs-section {
+.albums-section,
+.songs-section {
   margin-bottom: 30px;
 }
 
 
-.albums-section h2, .songs-section h2 {
+.albums-section h2,
+.songs-section h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #4f4f4f; /* Texto oscuro sobrio */
+  color: #4f4f4f;
+  /* Texto oscuro sobrio */
 }
 
 /* Álbumes Destacados */
@@ -93,13 +114,14 @@
   gap: 15px;
   overflow-x: auto;
   padding: 10px 0;
-  
+
 }
 
 .album-card {
   min-width: 120px;
   text-align: center;
-  background: #ffffff; /* Fondo claro */
+  background: #ffffff;
+  /* Fondo claro */
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -120,7 +142,8 @@
 
 .album-artist {
   font-size: 0.8rem;
-  color: #9d9d9d; /* Gris suave */
+  color: #9d9d9d;
+  /* Gris suave */
 }
 
 
@@ -133,9 +156,9 @@
   align-items: center;
   position: relative;
   max-width: auto;
- }
- 
- .input {
+}
+
+.input {
   width: 100%;
   height: 40px;
   line-height: 28px;
@@ -147,27 +170,28 @@
   background-color: #f3f3f4;
   color: #0d0c22;
   transition: .3s ease;
- }
- 
- .input::placeholder {
+}
+
+.input::placeholder {
   color: #9e9ea7;
- }
- 
- .input:focus, input:hover {
+}
+
+.input:focus,
+input:hover {
   outline: none;
-  border-color: rgba(234,76,137,0.4);
+  border-color: rgba(234, 76, 137, 0.4);
   background-color: #fff;
   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
- }
- 
- .icon {
+}
+
+.icon {
   position: absolute;
   left: 1rem;
   fill: #9e9ea7;
   width: 1rem;
   height: 1rem;
- }
- 
+}
+
 
 /* Nueva sección de reproducción actual */
 
@@ -179,7 +203,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: conic-gradient( #f1f1f1, #92c51a);
+  background: conic-gradient(#f1f1f1, #92c51a);
   cursor: pointer;
   outline: none;
 }
@@ -230,7 +254,7 @@
   cursor: pointer;
 }
 
-.play-btn:checked + .play-icon {
+.play-btn:checked+.play-icon {
   clip-path: polygon(0 100%, 0% 100%, 100% 100%);
 }
 
@@ -262,12 +286,12 @@
   right: 0;
 }
 
-.play-btn:checked ~ .pause-icon::before {
+.play-btn:checked~.pause-icon::before {
   animation: reveal 300ms ease-in-out 350ms 1;
   animation-fill-mode: forwards;
 }
 
-.play-btn:checked ~ .pause-icon::after {
+.play-btn:checked~.pause-icon::after {
   animation: reveal 300ms ease-in-out 600ms 1;
   animation-fill-mode: forwards;
 }
@@ -284,11 +308,12 @@
 
 
 
-/* */ 
+/* */
 .audio-playerr {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Asegura que los controles se mantengan en su lugar */
+  justify-content: space-between;
+  /* Asegura que los controles se mantengan en su lugar */
   width: 100%;
   height: 60px;
   background-color: #76a7f5d3;
@@ -299,7 +324,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1001; 
+  z-index: 1001;
   margin-bottom: 10.4%;
 }
 
@@ -312,17 +337,18 @@
   margin-right: 12px;
 }
 
-.album-coverr img	{
+.album-coverr img {
   border-radius: 8px;
 }
 
 .player-controls {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;flex-grow: 1;
+  flex-direction: column;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .song-info {
@@ -356,7 +382,8 @@
   background-color: #1db954;
   transform-origin: left;
   animation: progress-animation 10s linear infinite;
-  animation-play-state: paused; /* Inicialmente en pausa */
+  animation-play-state: paused;
+  /* Inicialmente en pausa */
 }
 
 .buttonss {
@@ -392,12 +419,14 @@ button {
     transform: scaleX(1);
   }
 }
+
 // sobre los controles
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px; /* Espacio entre los controles */
+  gap: 8px;
+  /* Espacio entre los controles */
   color: rgb(0, 0, 0);
 }
 
@@ -416,38 +445,33 @@ button {
   color: #1db954;
 }
 
-.greenline {
-  background-color: #ff7b00;
-  height: 20px;
-  width: 2px;
-  position: relative;
-  transform-origin: bottom;
-}
 
 
 
 
-/* navegation */ 
+/* navegation */
 
 
 /* Barra de navegación */
 
 .bottom-navigation {
-  position: fixed; /* Asegura que esté fija en la pantalla */
-  bottom: 0; /* Mueve la barra de navegación a la parte inferior */
+  position: fixed;
+  /* Asegura que esté fija en la pantalla */
+  bottom: 0;
+  /* Mueve la barra de navegación a la parte inferior */
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px ;
+  padding: 8px;
   // border-radius: 5px 5px 0 0; 
   backdrop-filter: blur(5px);
   z-index: 1;
 }
 
 .bottom-navigation {
-  background-color:rgba(255, 255, 255, 0.815);
+  background-color: rgba(255, 255, 255, 0.815);
 }
 
 
@@ -469,4 +493,3 @@ button {
   font-size: 1.5rem;
   margin-bottom: 5px;
 }
-

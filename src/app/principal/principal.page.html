@@ -1,4 +1,3 @@
-<ion-content>
   <div class="main-container">
     <!-- Fondo Animado -->
     <div class="background-animation"></div>
@@ -35,7 +34,7 @@
    
       <ion-item  *ngFor="let cancion of cancionesFiltradas" (click)="reproducir(cancion)" >
         <ion-thumbnail slot="start">
-          <img [src]="cancion.img" />
+          <img [src]="cancion.img"/>
         </ion-thumbnail>
         <ion-label>
           <h2>{{ cancion.title }}</h2>
@@ -122,7 +121,7 @@
           <span>Inicio</span>
         </a>
         
-        <a href="#" [routerLink]="['/perfil-usuario']"  routerLinkActive="router-link-active" class="nav-item">
+        <a href="#" [routerLink]="['/perfil-usuario']" (click)="pause()"  routerLinkActive="router-link-active" class="nav-item">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="nav-icon">
             <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
           </svg>
@@ -130,7 +129,8 @@
         </a>
       </div>
   </div>
-</ion-content>
+ 
+
 
 
 

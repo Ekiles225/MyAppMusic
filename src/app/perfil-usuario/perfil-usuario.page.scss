@@ -7,14 +7,7 @@
   border-radius: 8px;
   transition: all .25s ease-in-out;
 }
-ion-content{
-  position: relative;
-  height: 100%;
-  // background: #6c23c0;
-  padding: 2rem;
-  border-radius: 8px;
-  transition: all .25s ease-in-out;
-}
+
 .container:hover {
   box-shadow: 0 4px 50px #00000020;
 }
@@ -25,12 +18,13 @@ ion-content{
 
 .info {
   margin-top: 1rem;
+  color: #000000;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-.info  {
-  color: #000000;
-  margin-left: 40%;
-}
+
 
 
 .card {
@@ -125,76 +119,6 @@ ion-content{
 }
 
 
-
-
-// botones de edicion de perfil
-/* From Uiverse.io by andrew-demchenk0 */ 
-.theme-switcher {
-  padding: 3px;
-  width: -moz-fit-content;
-  width: fit-content;
-  display: flex;
-  border-radius: 9999px;
-  border: 1px solid grey;
-}
-
-.theme-switcher_switch {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: inherit;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-.theme-switcher_switch:hover > .icon {
-  stroke: #323232;
-}
-
-.theme-switcher_switch:active {
-  background-color: rgba(128, 128, 128, 0.35);
-}
-
-.theme-switcher_switch:active > .icon {
-  stroke: white;
-}
-
-/* Barra de navegación */
-.bottom-navigation {
-  position: fixed; /* Asegura que esté fija en la pantalla */
-  bottom: 0; /* Mueve la barra de navegación a la parte inferior */
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 15px 10px;
-  // border-radius: 5px 5px 0 0; 
-  backdrop-filter: blur(10px);
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-}
-
-.bottom-navigation {
-  background-color:rgba(255, 255, 255, 0.815);
-}
-
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: rgb(234, 76, 137);
-  font-size: 0.75rem;
-  // transition: color 0.3s ease;
-}
-.nav-icon {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
 
 
 /* From Uiverse.io by vinodjangid07 */ 

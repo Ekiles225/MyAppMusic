@@ -11,7 +11,7 @@ import { Router } from 'express';
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel, RouterLink]
+  imports: [CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel, RouterLink]
 })
 export class PrincipalPage implements OnInit {
 

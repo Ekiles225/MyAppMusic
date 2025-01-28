@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {  IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonAvatar, IonLabel, IonButton } from '@ionic/angular/standalone';
+import { AnimationController, IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonAvatar, IonLabel, IonButton, IonList, IonImg, IonModal, IonButtons, IonTabButton } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeezerService } from '../Servicios/deezer.service';
 import { RouterModule } from '@angular/router'; // Importa RouterModule
-
+import { AudioService } from '../Servicios/audio.service';
 
 @Component({
   selector: 'app-musica',
   templateUrl: './musica.page.html',
   styleUrls: ['./musica.page.scss'],
   standalone: true,
-  imports: [IonButton, IonLabel, IonAvatar, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
+  imports: [IonTabButton, IonButton, IonLabel, IonAvatar, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
 })
-export class MusicaPage implements OnInit {
+export class MusicaPage implements OnInit  {
 
   genre: string = ''; // Género recibido
   songs: any[] = []; // Canciones filtradas
@@ -27,6 +27,7 @@ export class MusicaPage implements OnInit {
   constructor(
     private deezerService: DeezerService,
     private route: ActivatedRoute,
+    private animationCtrl: AnimationController
   
   ) { }
 

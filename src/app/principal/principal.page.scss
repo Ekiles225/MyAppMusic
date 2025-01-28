@@ -2,7 +2,7 @@
 .main-container {
   position: relative;
   min-height: 100vh;
-  padding: 20px;
+  padding: 10px;
   color: #2c2c2c; /* Texto oscuro */
   overflow-y: scroll; /* Asegura que el contenido sea desplazable */
   z-index: 1;
@@ -14,9 +14,13 @@
   display: none; /* Safari y Chrome */
 }
 
-// ion-content {
-//   --overflow: hidden;  Oculta la barra de desplazamiento en Ionic 
-// }
+
+.container {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 50%;
+}
 
 /* Fondo Animado */
 .background-animation {
@@ -76,6 +80,7 @@
   margin-bottom: 30px;
 }
 
+
 .albums-section h2, .songs-section h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
@@ -118,56 +123,7 @@
   color: #9d9d9d; /* Gris suave */
 }
 
-/* Canciones Populares */
-.songs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
 
-.song-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff; /* Fondo blanco */
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-}
-
-.song-card:hover {
-  background: #f7f7f7; /* Fondo más claro */
-}
-
-
-.play-icon {
-  font-size: 2rem;
-  color: #82b1ff; /* Azul pastel */
-  cursor: pointer;
-}
-
-
-
-.nav-item:hover {
-  color: #82b1ff; /* Azul pastel */
-  transform: scale(1.1);
-}
-
-.nav-icon {
-  font-size: 1.7rem;
-  margin-bottom: 5px;
-}
-
-/* Estilo flotante del perfil */
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid #82b1ff;
-  object-fit: cover;
-  box-shadow: 0 2px 10px rgba(130, 177, 255, 0.4);
-}
 
 /* Barra de búsqueda */
 
@@ -212,41 +168,10 @@
   height: 1rem;
  }
  
- /* From Uiverse.io by akshat-patel28 */ 
-
-
-
-.button {
-  outline: 0 !important;
-  border: 0 !important;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-}
-
-.button:hover {
-  transform: translateY(-3px);
-}
-
-.icon {
-  font-size: 20px;
-}
 
 /* Nueva sección de reproducción actual */
 
-.container {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  border-radius: 50%;
-}
+
 
 .play-btn {
   position: absolute;
@@ -375,7 +300,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1001; 
-  margin-bottom: 12%;
+  margin-bottom: 10.4%;
 }
 
 
@@ -503,44 +428,7 @@ button {
 
 
 /* navegation */ 
-.button-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(245, 73, 144, 0.8);
-  width: 100%;
-  height: 60px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px, rgba(245, 73, 144, 0.5) 5px 10px 15px;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
 
-.button {
-  outline: 0 !important;
-  border: 0 !important;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-}
-
-.button:hover {
-  transform: translateY(-3px);
-}
-
-.icon {
-  font-size: 40px;
-}
 
 /* Barra de navegación */
 
@@ -552,10 +440,10 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 15px 10px;
+  padding: 8px ;
   // border-radius: 5px 5px 0 0; 
-  backdrop-filter: blur(10px);
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  backdrop-filter: blur(5px);
+  z-index: 1;
 }
 
 .bottom-navigation {
@@ -573,7 +461,9 @@ button {
   // transition: color 0.3s ease;
 }
 
-
+.nav-item:hover {
+  color: #76a7f5d3;
+}
 
 .nav-icon {
   font-size: 1.5rem;

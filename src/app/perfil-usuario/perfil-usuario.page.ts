@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonList, IonItem, IonLabel, IonInput, IonAvatar, IonButton, IonAlert
+  IonList, 
+  IonItem, 
+  IonLabel, 
+  IonAvatar, 
+  IonButton, 
+  IonAlert, 
+  AnimationController
 } from '@ionic/angular/standalone';
+
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service';
-import { RouterModule } from '@angular/router'; // Importa RouterModule
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -15,7 +21,7 @@ import { RouterModule } from '@angular/router'; // Importa RouterModule
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
   imports: [IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
-    RouterLink, RouterModule
+    RouterLink
   ]
 })
 
@@ -41,7 +47,7 @@ export class PerfilUsuarioPage implements OnInit {
     // Agrega más playlists según sea necesario
   ];
 
-  constructor(private usuarioService: UserService, private personService: PersonService) {
+  constructor(private usuarioService: UserService, private personService: PersonService, private animationCtrl: AnimationController) {
     this.personid = localStorage.getItem('id');
   }
 
@@ -134,5 +140,5 @@ export class PerfilUsuarioPage implements OnInit {
       },
     });
   }
-  
+
 }

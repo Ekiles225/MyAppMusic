@@ -5,14 +5,13 @@ import { AnimationController, IonContent, IonHeader, IonTitle, IonToolbar, IonIt
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeezerService } from '../Servicios/deezer.service';
 import { RouterModule } from '@angular/router'; // Importa RouterModule
-import { AudioService } from '../Servicios/audio.service';
 
 @Component({
   selector: 'app-musica',
   templateUrl: './musica.page.html',
   styleUrls: ['./musica.page.scss'],
   standalone: true,
-  imports: [IonTabButton, IonButton, IonLabel, IonAvatar, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
+  imports: [IonButton, IonLabel, IonAvatar, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule]
 })
 export class MusicaPage implements OnInit {
 

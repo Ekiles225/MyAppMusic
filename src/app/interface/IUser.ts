@@ -10,6 +10,6 @@ export interface IUser {
     id: number;               // ID único de la persona
     nombreUsuario?: string | null | undefined;     // Nombre de la persona, opcional o null
     descripcion?: string | null | undefined; // Apellido de la persona, opcional o null 
-    photo?: string | null | undefined;    // URL de la foto, opcional o null
+    foto?: string | null | undefined;    // URL de la foto, opcional o null
   }
   

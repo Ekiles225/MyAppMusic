@@ -8,19 +8,21 @@ import {
   IonAvatar,
   IonButton,
   IonAlert,
-  AnimationController, IonImg
+  AnimationController,
+  AlertController
 } from '@ionic/angular/standalone';
 
 import { RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service';
+import { IUser } from '../interface/IUser';
 
 @Component({
   selector: 'app-perfil-usuario',
   templateUrl: './perfil-usuario.page.html',
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
-  imports: [IonImg, IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
+  imports: [IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
     RouterLink
   ]
 })
@@ -47,7 +49,7 @@ export class PerfilUsuarioPage implements OnInit {
     // Agrega más playlists según sea necesario
   ];
 
-  constructor(private usuarioService: UserService, private personService: PersonService, private animationCtrl: AnimationController) {
+  constructor(private alertController: AlertController, private usuarioService: UserService, private personService: PersonService, private animationCtrl: AnimationController) {
     this.personid = localStorage.getItem('id');
   }
 
@@ -62,17 +64,10 @@ export class PerfilUsuarioPage implements OnInit {
   }
 
   viewProfile() {
-    // this.usuarioService.getOneUser(this.personid).subscribe({
-    //   next: (data: any) => {
-    //     this.profile = data;
-    //   },
-    //   error: (error: any) => {
-    //     console.log("error");
-    //   }
-    // })
-
+   
     this.usuarioService.getOneUser(this.personid).subscribe({
       next: (data: any) => {
+  
         this.profile = data;
 
         // Configurar los inputs del ion-alert con los datos del perfil
@@ -111,20 +106,7 @@ export class PerfilUsuarioPage implements OnInit {
   }
 
   updatePerson(data: any) {
-    //   if (this.editDatos) return; // Si no se está editando, no hacer nada
-    //   const id = this.profile.user.person.id; // Obteniendo el id dinámicamente
-    //   const nombreUsuario = this.profile.user.person.nombreUsuario;
-    //   const descripcion = this.profile.user.person.descripcion;
-    //   this.personService.updatePerson(id, nombreUsuario, descripcion).subscribe({
-    //     next: (data: any) => {
-    //       this.profile = data;
-    //       console.log('Perfil actualizado con éxito:', data);
-    //     },
-    //     error: (error: any) => {
-    //       console.error('Error al actualizar el perfil:', error);
-    //     }
-    //   });
-    // }
+  
     const id = this.profile.user.person.id;
     const nombreUsuario = data.nombreUsuario;
     const descripcion = data.descripcion;
@@ -141,4 +123,29 @@ export class PerfilUsuarioPage implements OnInit {
     });
   }
 
+  changeImage(event:any){
+    const file = event.target.files[0];
+    
+    this.personService.updateImage(this.personid, file).subscribe({
+      next: (data:any) => {
+        console.log('Imagen actualizada con éxito:', data);
+       
+        this.viewProfile();
+      },
+      error: (error: any) => {
+        console.error('Error al actualizar la imagen:', error);
+      },
+    }); 
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'FOTO PERFIL',
+      subHeader: 'Foto actualizada con exito',
+      message: 'Foto actualizada con exito',
+      buttons: ['Action'],
+    });
+
+    await alert.present();
+  }
 }

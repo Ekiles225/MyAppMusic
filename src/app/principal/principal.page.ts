@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonItem, IonThumbnail, IonLabel } from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonThumbnail, IonLabel, IonAvatar } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { DeezerService } from 'src/app/Servicios/deezer.service';
 import { Router } from 'express';
@@ -11,7 +11,7 @@ import { Router } from 'express';
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel, RouterLink]
+  imports: [IonAvatar, CommonModule, FormsModule, IonItem, IonThumbnail, IonLabel, RouterLink]
 })
 export class PrincipalPage implements OnInit {
 

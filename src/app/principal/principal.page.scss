@@ -20,13 +20,6 @@
 }
 
 
-.container {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  border-radius: 50%;
-}
-
 /* Fondo Animado */
 .background-animation {
   position: fixed;
@@ -75,7 +68,6 @@
 }
 
 @keyframes bounce {
-
   0%,
   20%,
   50%,
@@ -94,16 +86,9 @@
 }
 
 /* Sección de Álbumes */
-.albums-section,
-.songs-section {
-  margin-bottom: 30px;
-}
 
-
-.albums-section h2,
-.songs-section h2 {
+.albums-section h2{
   font-size: 1.5rem;
-  margin-bottom: 15px;
   color: #4f4f4f;
   /* Texto oscuro sobrio */
 }
@@ -114,7 +99,6 @@
   gap: 15px;
   overflow-x: auto;
   padding: 10px 0;
-
 }
 
 .album-card {
@@ -146,6 +130,25 @@
   /* Gris suave */
 }
 
+.album-cover{
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.album-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+//la parte de la imagen de las lista de musicas 
+
+.avatarMusica{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
 
 /* Barra de búsqueda */
@@ -338,7 +341,7 @@ input:hover {
 }
 
 .album-coverr img {
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .player-controls {
@@ -368,23 +371,6 @@ input:hover {
   margin: 0;
 }
 
-.progress-barr {
-  width: 100%;
-  height: 4px;
-  background-color: #4f4f4f;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.progress {
-  width: 50%;
-  height: 100%;
-  background-color: #1db954;
-  transform-origin: left;
-  animation: progress-animation 10s linear infinite;
-  animation-play-state: paused;
-  /* Inicialmente en pausa */
-}
 
 .buttonss {
   display: flex;
@@ -444,13 +430,6 @@ button {
 .controls svg:hover {
   color: #1db954;
 }
-
-
-
-
-
-/* navegation */
-
 
 /* Barra de navegación */
 

@@ -20,8 +20,16 @@
       <ion-button (click)="loginUser(correo, pasword)" expand="block" class="btn-login">Iniciar Sesión</ion-button>
 
       <!-- Opciones de Login con Redes Sociales -->
-    
+ 
+      <div class="social-login">
+        <ion-button (click)="loginWithGoogle()" expand="block" class="btn-google">
+          <ion-icon name="logo-google"></ion-icon>
+          Iniciar sesión con Google       
+        </ion-button>
+      </div>
+
       
+      <!-- 698278526138-85jrtj0fk5onvjdibh8pb47pm0j738kj.apps.googleusercontent.com -->
       <!-- Link de registro -->
       <p class="register-link">
         ¿No tienes una cuenta? <a routerLink="/registro">Regístrate</a>

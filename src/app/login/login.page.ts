@@ -1,21 +1,22 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonButtons, IonBackButton, IonIcon } from '@ionic/angular/standalone';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import {provideFirebaseApp} from '@angular/fire/app'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonButton, IonInput, IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
-    IonButtons, IonBackButton, RouterLink]
+  imports: [IonIcon, IonButton, IonInput,IonContent, CommonModule, FormsModule, RouterLink]
 })
+
+
 export class LoginPage {
 
   constructor(private UserService: UserService, private router: Router,
@@ -70,4 +71,5 @@ export class LoginPage {
     console.log('Iniciando sesión con Google...');
     // Aquí agregarías la integración con Google SDK o Firebase
   }
+  
 }

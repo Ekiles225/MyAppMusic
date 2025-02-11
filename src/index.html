@@ -17,6 +17,55 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-analytics.js";
+
+    // Importar Firebase y Auth correctamente
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9X4lWiKBgqY5HzTGFH8-M-M2jLIinaBk",
+      authDomain: "myappmuscisa.firebaseapp.com",
+      projectId: "myappmuscisa",
+      storageBucket: "myappmuscisa.firebasestorage.app",
+      messagingSenderId: "698278526138",
+      appId: "1:698278526138:web:3bb5c00831176798789683",
+      measurementId: "G-17JLQSNMRM"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+     // Inicializar Firebase
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  // Función para iniciar sesión con Google
+  window.loginWithGoogle = async function () {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("Usuario autenticado:", result.user);
+      alert("Sesión iniciada con éxito: " + result.user.displayName);
+    } catch (error) {
+      console.error("Error en la autenticación con Google:", error);
+      alert("Error al iniciar sesión");
+    }
+  };
+  </script>
+
+
 </head>
 
 <body>

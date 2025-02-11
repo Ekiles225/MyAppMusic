@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989484955209",
+    "project_id": "login-af445",
+    "storage_bucket": "login-af445.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989484955209:android:2552dd6bb2cce8d710b198",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989484955209-ngvp7i7hbtk2i72pp6193uefggbqv80u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClPQ-QjjQaPIQBTBiTpWUtYgbkAYjF0AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989484955209-ngvp7i7hbtk2i72pp6193uefggbqv80u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

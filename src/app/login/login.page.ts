@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonLabel, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonButtons, IonBackButton, IonIcon } from '@ionic/angular/standalone';
+import { IonContent,IonInput, IonButton,IonIcon } from '@ionic/angular/standalone';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import {provideFirebaseApp} from '@angular/fire/app'
+import { LoginService } from 'src/app/Servicios/login.service';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +22,7 @@ import {provideFirebaseApp} from '@angular/fire/app'
 
 export class LoginPage {
 
-  constructor(private UserService: UserService, private router: Router,
+  constructor(private UserService: UserService, private router: Router, private loginService: LoginService,
     private loadingController: LoadingController, private alertController: AlertController, private alertCtrl: AlertController) { }
 
   ngOnInit() { }
@@ -67,9 +70,23 @@ export class LoginPage {
   }
 
   // Método para iniciar sesión con Google
-  loginWithGoogle() {
+  async loginWithGoogle() {
     console.log('Iniciando sesión con Google...');
-    // Aquí agregarías la integración con Google SDK o Firebase
-  }
   
-}
+    try {
+      // Llamar a la función definida en index.html
+      const loginFunction = (window as any).loginWithGoogle;
+      
+      if (typeof loginFunction === 'function') {
+        await loginFunction();
+        console.log('Sesión iniciada con éxito');
+      } else {
+        console.error('La función loginWithGoogle no está definida en window.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
+  }
+}  
+  
+

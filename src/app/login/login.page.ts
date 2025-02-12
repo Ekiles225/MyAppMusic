@@ -7,7 +7,6 @@ import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import {provideFirebaseApp} from '@angular/fire/app'
-import { LoginService } from 'src/app/Servicios/login.service';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -22,10 +21,12 @@ import { getAnalytics } from "firebase/analytics";
 
 export class LoginPage {
 
-  constructor(private UserService: UserService, private router: Router, private loginService: LoginService,
+  constructor(private UserService: UserService, private router: Router,
     private loadingController: LoadingController, private alertController: AlertController, private alertCtrl: AlertController) { }
 
   ngOnInit() { }
+
+  // Método para iniciar sesión con correo y contraseña
   async loginUser(email: any, password: any) {
     const loading = await this.loadingController.create({
       message: 'Iniciando sesión...',
@@ -64,14 +65,30 @@ export class LoginPage {
     await alert.present();
   }
 
-  loginWithFacebook() {
-    console.log('Iniciando sesión con Facebook...');
-    // Aquí agregarías la integración con Facebook SDK o Firebase
-  }
-
   // Método para iniciar sesión con Google
   async loginWithGoogle() {
     console.log('Iniciando sesión con Google...');
+  
+    try {
+      // Llamar a la función definida en index.html
+      const loginFunction = (window as any).loginWithGoogle;
+      
+      if (typeof loginFunction === 'function') {
+        await loginFunction();
+        console.log('Sesión iniciada con éxito');
+        this.showAlert('Éxito', 'Inicio de sesión exitoso');
+        this.router.navigateByUrl('principal');
+      } else {
+        console.error('La función loginWithGoogle no está definida en window.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      this.showAlert('Error', 'Inicio de sesión fallido');
+    }
+  }
+
+  async loginWithFacebook() {
+    console.log('Iniciando sesión con Facebook...');
   
     try {
       // Llamar a la función definida en index.html

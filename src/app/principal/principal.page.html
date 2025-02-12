@@ -3,7 +3,7 @@
   <div class="background-animation"></div>
 
   <!-- Cabecera -->
-  <header class="app-header">
+  <header class="app-header"  routerLink="/perfil-usuario">
     <h1>🎵</h1>
     <p>Explora y disfruta de tu música favorita</p>
   </header>
@@ -36,7 +36,7 @@
   </section>
 
   <h2>Musicas</h2>
-
+<!-- 
   <ion-item *ngFor="let cancion of cancionesFiltradas" (click)="reproducir(cancion)">
     <ion-avatar slot="start" class="avatarMusica">
       <img [src]="cancion.img" />
@@ -45,7 +45,22 @@
       <h2>{{ cancion.title }}</h2>
       <p>{{ cancion.artist }}</p>
     </ion-label>
-  </ion-item>
+  </ion-item> -->
+
+    <ion-list> 
+      <ion-item  *ngFor="let cancion of cancionesFiltradas" (click)="reproducir(cancion)">
+        <ion-avatar slot="start" class="avatarMusica">
+          <img [src]="cancion.img" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ cancion.title }}</h2>
+          <p>{{ cancion.artist }}</p>
+        </ion-label>
+      </ion-item>  
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 
   <div *ngIf="cancionSeleccionada" class="audio-playerr">
@@ -82,6 +97,7 @@
     </div>
   </div>
 
+<!-- 
   <div class="bottom-navigation">
     <a href="#" [routerLink]="['/home']" routerLinkActive="router-link-active" class="nav-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
@@ -103,5 +119,5 @@
       </svg>
       <span>Tu Biblioteca</span>
     </a>
-  </div>
+  </div> -->
 </div>

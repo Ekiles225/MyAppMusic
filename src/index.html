@@ -20,7 +20,7 @@
 
 
 
-
+<!-- 
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
@@ -55,7 +55,7 @@
   // Función para iniciar sesión con Google
   window.loginWithGoogle = async function () {
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithRedirect(auth, provider);
       console.log("Usuario autenticado:", result.user);
       alert("Sesión iniciada con éxito: " + result.user.displayName);
     } catch (error) {
@@ -64,7 +64,48 @@
     }
   };
   </script>
+ -->
 
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+  import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD9X4lWiKBgqY5HzTGFH8-M-M2jLIinaBk",
+    authDomain: "myappmuscisa.firebaseapp.com",
+    projectId: "myappmuscisa",
+    storageBucket: "myappmuscisa.firebasestorage.app",
+    messagingSenderId: "698278526138",
+    appId: "1:698278526138:web:3bb5c00831176798789683",
+    measurementId: "G-17JLQSNMRM"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  function isRunningInWebView() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera; //chequea que tipo de disposito es 
+    return /android|iphone|ipad|ipod/i.test(userAgent) && window.matchMedia('(display-mode: standalone)').matches;
+  }
+
+  window.loginWithGoogle = async function () {
+    try {
+      if (isRunningInWebView()) {
+        console.log("Usando signInWithRedirect() para WebView en Android/iOS");
+        await signInWithRedirect(auth, provider);
+      } else {
+        console.log("Usando signInWithPopup() para navegadores web");
+        const result = await signInWithPopup(auth, provider);
+        console.log("Usuario autenticado:", result.user);
+        // alert("Sesión iniciada con éxito: " + result.user.displayName);
+      }
+    } catch (error) {
+      console.error("Error en la autenticación con Google:", error);
+      // alert("Error al iniciar sesión");
+    }
+  };
+</script>
 
 </head>
 

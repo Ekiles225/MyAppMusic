@@ -324,11 +324,11 @@ input:hover {
   padding: 8px;
   box-sizing: border-box;
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1001;
-  margin-bottom: 10.4%;
+  z-index: 1;
+  // margin-bottom: 10.4%;
 }
 
 

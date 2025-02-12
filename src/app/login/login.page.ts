@@ -6,9 +6,6 @@ import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-import {provideFirebaseApp} from '@angular/fire/app'
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 @Component({
   selector: 'app-login',

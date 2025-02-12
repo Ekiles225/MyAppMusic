@@ -9,13 +9,17 @@ import {
   IonButton,
   IonAlert,
   AnimationController,
-  AlertController
+  AlertController,
+  ActionSheetController
 } from '@ionic/angular/standalone';
 
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { PersonService } from '../Servicios/person.service';
-import { IUser } from '../interface/IUser';
+
+
+import { Share } from '@capacitor/share';
+
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -38,25 +42,114 @@ export class PerfilUsuarioPage implements OnInit {
   // Configuración del ion-alert
   alertInputs: any[] = []; // Inputs dinámicos del ion-alert
   alertButtons: any[] = []; // Botones del ion-alert
+  playlists: any[] = []; // Playlists que se mostrarán en la vista
 
-
-  playlists: any[] = [
-    { name: 'Bachata', genre: 'bachata' },
-    { name: 'Rock', genre: 'rock' },
-    { name: 'Pop', genre: 'pop' },
-    { name: 'Balada', genre: 'balada' },
-
-    // Agrega más playlists según sea necesario
-  ];
-
-  constructor(private alertController: AlertController, private usuarioService: UserService, private personService: PersonService, private animationCtrl: AnimationController) {
+  constructor(
+    private actionSheetCtrl: ActionSheetController,
+    private alertController: AlertController, 
+    private usuarioService: UserService, 
+    private personService: PersonService, 
+    private router: Router
+  ) 
+    {
     this.personid = localStorage.getItem('id');
-  }
+    }
 
-  ngOnInit() {
+  ngOnInit() {  
     this.viewProfile();
+    // console.log('Playlists cargadas:', this.playlists);
+    const allPlaylists = [
+      { name: 'Bachata', genre: 'bachata' },
+      { name: 'Rock', genre: 'rock' },
+      { name: 'Pop', genre: 'pop' },
+      { name: 'Balada', genre: 'balada' },
+      { name: 'Merengue', genre: 'merengue' },
+
+    ];
+    this.playlists = this.filterDeletedPlaylists(allPlaylists);
     console.log('Playlists cargadas:', this.playlists);
   }
+
+
+
+
+  // Método para abrir el ActionSheet
+  async presentActionSheet(playlist: any) {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Actions',
+      buttons: [
+        {
+          text: 'Quitar',
+          role: 'destructive',
+          handler: () => {
+            this.deletePlaylist(playlist); // Llama a la función para eliminar la playlist
+          }
+        },
+        {
+          text: 'Ir a playlist',
+          handler: () => {
+          console.log('Ir a playlist:', playlist);
+          this.router.navigate(['/musica', playlist.genre]); // Navega a la ruta
+          }
+        },
+        {
+          text: 'Compartir',
+          handler: () => {
+            this.sharePlaylist(playlist); // Llama al método para compartir
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          data: {
+            action: 'cancel',
+          },
+        },
+      ],
+    });
+
+    await actionSheet.present();
+  }
+
+
+  // Metodo para compartir playLista
+  async sharePlaylist(playlist: any) {
+    try {
+      await Share.share({
+        title: playlist.name,
+        text: `Mira esta playlist: ${playlist.name} - ${playlist.genre}`,
+        url: `https://tuaplicacion.com/playlist/${playlist.genre}`,
+      });
+      console.log('Playlist compartida con éxito');
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
+  }
+
+  // Método para eliminar una playlist
+deletePlaylist(playlist: any) {
+  const index = this.playlists.findIndex(p => p.name === playlist.name && p.genre === playlist.genre);
+  if (index !== -1) {
+    this.playlists.splice(index, 1); // Elimina la playlist del arreglo
+    this.saveDeletedPlaylist(playlist.genre); // Guarda el género de la playlist eliminada
+    console.log('Playlist eliminada:', playlist);
+  }
+}
+
+// Guardar la playlist eliminada en localStorage
+saveDeletedPlaylist(genre: string) {
+  const deletedPlaylists = JSON.parse(localStorage.getItem('deletedPlaylists') || '[]');
+  if (!deletedPlaylists.includes(genre)) {
+    deletedPlaylists.push(genre);
+    localStorage.setItem('deletedPlaylists', JSON.stringify(deletedPlaylists));
+  }
+}
+
+// Filtrar las playlists al iniciar sesión
+filterDeletedPlaylists(playlists: any[]) {
+  const deletedPlaylists = JSON.parse(localStorage.getItem('deletedPlaylists') || '[]');
+  return playlists.filter(playlist => !deletedPlaylists.includes(playlist.genre));
+}
 
   // cosas de la edicion 
   editPerfil() {

@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonItem, IonLabel, IonAvatar,  IonList, IonInfiniteScroll, IonInfiniteScrollContent, InfiniteScrollCustomEvent } from '@ionic/angular/standalone';
+import { IonItem, IonLabel, IonAvatar,InfiniteScrollCustomEvent } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { DeezerService } from 'src/app/Servicios/deezer.service';
-import { Router } from 'express';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
   standalone: true,
-  imports: [IonInfiniteScrollContent, IonInfiniteScroll, IonList,IonAvatar, CommonModule, FormsModule, IonItem, IonLabel, RouterLink]
+  imports: [IonAvatar, CommonModule, FormsModule, IonItem, IonLabel, RouterLink]
 })
 export class PrincipalPage implements OnInit {
 

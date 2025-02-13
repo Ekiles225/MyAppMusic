@@ -84,21 +84,24 @@ export class LoginPage {
     }
   }
 
+  
   async loginWithFacebook() {
     console.log('Iniciando sesión con Facebook...');
   
     try {
-      // Llamar a la función definida en index.html
-      const loginFunction = (window as any).loginWithGoogle;
-      
+      const loginFunction = (window as any).loginWithFacebook;
+  
       if (typeof loginFunction === 'function') {
         await loginFunction();
         console.log('Sesión iniciada con éxito');
+        this.showAlert('Éxito', 'Inicio de sesión exitoso');
+        this.router.navigateByUrl('principal');
       } else {
         console.error('La función loginWithGoogle no está definida en window.');
       }
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
+      this.showAlert('Error', 'Inicio de sesión fallido');
     }
   }
 }  

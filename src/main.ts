@@ -6,6 +6,7 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
 
+//lo de firebase 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { environment } from './environments/environment';
@@ -15,7 +16,8 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(), provideHttpClient(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // Inicializa Firebase
-    provideAuth(() => getAuth()) // Proporciona la autenticación
+
+    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // Inicializa Firebase
+    // provideAuth(() => getAuth()) // Proporciona la autenticación
   ],
 });

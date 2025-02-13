@@ -68,7 +68,7 @@
 
  <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
-  import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+  import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyD9X4lWiKBgqY5HzTGFH8-M-M2jLIinaBk",
@@ -83,11 +83,14 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   function isRunningInWebView() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera; //chequea que tipo de disposito es 
     return /android|iphone|ipad|ipod/i.test(userAgent) && window.matchMedia('(display-mode: standalone)').matches;
   }
+
+  // Inicio de sesión con Google
 
   window.loginWithGoogle = async function () {
     try {
@@ -105,6 +108,23 @@
       // alert("Error al iniciar sesión");
     }
   };
+  
+   // Iniciar sesión con Facebook
+   window.loginWithFacebook = async function () {
+    try {
+      if (isRunningInWebView()) {
+        console.log("Usando signInWithRedirect() para Facebook en WebView");
+        await signInWithRedirect(auth, facebookProvider);
+      } else {
+        console.log("Usando signInWithPopup() para Facebook en navegadores");
+        const result = await signInWithPopup(auth, facebookProvider);
+        console.log("Usuario autenticado con Facebook:", result.user);
+      }
+    } catch (error) {
+      console.error("Error en la autenticación con Facebook:", error);
+    }
+  };
+
 </script>
 
 </head>

@@ -8,10 +8,8 @@ import {
   IonAvatar,
   IonButton,
   IonAlert,
-  AnimationController,
   AlertController,
-  ActionSheetController
-} from '@ionic/angular/standalone';
+  ActionSheetController, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 
 import { RouterLink, Router } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
@@ -19,6 +17,8 @@ import { PersonService } from '../Servicios/person.service';
 
 
 import { Share } from '@capacitor/share';
+// import { getAuth } from 'firebase/auth';
+import { User } from '@angular/fire/auth';
 
 
 @Component({
@@ -26,7 +26,7 @@ import { Share } from '@capacitor/share';
   templateUrl: './perfil-usuario.page.html',
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
-  imports: [IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
+  imports: [IonTitle, IonToolbar, IonHeader, IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
     RouterLink
   ]
 })
@@ -35,7 +35,7 @@ import { Share } from '@capacitor/share';
 export class PerfilUsuarioPage implements OnInit {
 
 
-  profile: any;
+  profile: any = {};
   personid: any;
   editDatos: boolean = true;
 
@@ -43,6 +43,8 @@ export class PerfilUsuarioPage implements OnInit {
   alertInputs: any[] = []; // Inputs dinámicos del ion-alert
   alertButtons: any[] = []; // Botones del ion-alert
   playlists: any[] = []; // Playlists que se mostrarán en la vista
+
+  user: User | null = null; // Variable para almacenar los datos del usuario de Firebase
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -57,7 +59,7 @@ export class PerfilUsuarioPage implements OnInit {
 
   ngOnInit() {  
     this.viewProfile();
-    // console.log('Playlists cargadas:', this.playlists);
+    console.log('Playlists cargadas:', this.playlists);
     const allPlaylists = [
       { name: 'Bachata', genre: 'bachata' },
       { name: 'Rock', genre: 'rock' },
@@ -70,9 +72,14 @@ export class PerfilUsuarioPage implements OnInit {
     console.log('Playlists cargadas:', this.playlists);
   }
 
+//metodo para cerrar secion con localStorageClear
+cerrarSesion() {
+  localStorage.clear(); 
+  this.router.navigate(['/login']); // Redirige al login
+}
 
 
-
+  
   // Método para abrir el ActionSheet
   async presentActionSheet(playlist: any) {
     const actionSheet = await this.actionSheetCtrl.create({
@@ -158,6 +165,11 @@ filterDeletedPlaylists(playlists: any[]) {
 
   viewProfile() {
    
+    if (!this.personid) {
+      console.error(' No hay ID de usuario en localStorage');
+      return;
+    }
+
     this.usuarioService.getOneUser(this.personid).subscribe({
       next: (data: any) => {
   
@@ -222,7 +234,7 @@ filterDeletedPlaylists(playlists: any[]) {
     this.personService.updateImage(this.personid, file).subscribe({
       next: (data:any) => {
         console.log('Imagen actualizada con éxito:', data);
-       
+       this.presentAlert();
         this.viewProfile();
       },
       error: (error: any) => {
@@ -235,8 +247,7 @@ filterDeletedPlaylists(playlists: any[]) {
     const alert = await this.alertController.create({
       header: 'FOTO PERFIL',
       subHeader: 'Foto actualizada con exito',
-      message: 'Foto actualizada con exito',
-      buttons: ['Action'],
+      buttons: ['OK'],
     });
 
     await alert.present();

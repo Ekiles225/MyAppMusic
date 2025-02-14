@@ -57,21 +57,12 @@
       </div>
       <div class="controls">
 
-        <svg (click)="cancionAnterior()"  width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M12 21.6a9.6 9.6 0 1 0 0-19.2 9.6 9.6 0 0 0 0 19.2Zm.848-12.352a1.2 1.2 0 0 0-1.696-1.696l-3.6 3.6a1.2 1.2 0 0 0 0 1.696l3.6 3.6a1.2 1.2 0 0 0 1.696-1.696L11.297 13.2H15.6a1.2 1.2 0 1 0 0-2.4h-4.303l1.551-1.552Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        <svg  (click)="mute()" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path  fill-rule="evenodd"
-            d="M21.6 12a9.6 9.6 0 1 1-19.2 0 9.6 9.6 0 0 1 19.2 0ZM8.4 9.6a1.2 1.2 0 1 1 2.4 0v4.8a1.2 1.2 0 1 1-2.4 0V9.6Zm6-1.2a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 1 0 2.4 0V9.6a1.2 1.2 0 0 0-1.2-1.2Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        <svg (click)="siguienteCancion()" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path  fill-rule="evenodd"
-            d="M12 21.6a9.6 9.6 0 1 0 0-19.2 9.6 9.6 0 0 0 0 19.2Zm4.448-10.448-3.6-3.6a1.2 1.2 0 0 0-1.696 1.696l1.551 1.552H8.4a1.2 1.2 0 1 0 0 2.4h4.303l-1.551 1.552a1.2 1.2 0 1 0 1.696 1.696l3.6-3.6a1.2 1.2 0 0 0 0-1.696Z"
-            clip-rule="evenodd"></path>
-        </svg>
+        <svg (click)="cancionAnterior()" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.875" d="M2.2065 10.7391C1.2899 11.3298 1.2899 12.6702 2.2065 13.2609L9.18745 17.7597C10.1856 18.403 11.5 17.6863 11.5 16.4988L11.5 7.50117C11.5 6.31366 10.1856 5.59704 9.18745 6.24031L2.2065 10.7391Z"/><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.875" d="M12.2065 10.7391C11.2899 11.3298 11.2899 12.6702 12.2065 13.2609L19.1874 17.7597C20.1856 18.403 21.5 17.6863 21.5 16.4988L21.5 7.50117C21.5 6.31366 20.1856 5.59704 19.1874 6.24031L12.2065 10.7391Z"/></svg>
+        <svg *ngIf="!isPlaying" (click)="pauseYplay()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2.125" d="M14 15L14 9"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.125" d="M10 15L10 9"/><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/></svg>
+        <svg *ngIf="isPlaying" (click)="pauseYplay()" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="1.875" d="M15.2856 11.6214C15.4186 11.7012 15.5 11.8449 15.5 12V12C15.5 12.1551 15.4186 12.2988 15.2856 12.3786L10.593 15.1943C10.5321 15.2308 10.4625 15.2501 10.3915 15.2501V15.2501C10.1753 15.2501 10 15.0748 10 14.8585L10 9.14155C10 8.9253 10.1753 8.75 10.3915 8.75V8.75C10.4625 8.75 10.5321 8.76929 10.593 8.8058L15.2856 11.6214Z"/></svg>
+        <svg (click)="siguienteCancion()" xmlns="http://www.w3.org/2000/svg"  width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.875" d="M21.7935 10.7391C22.7101 11.3298 22.7101 12.6702 21.7935 13.2609L14.8126 17.7597C13.8144 18.403 12.5 17.6863 12.5 16.4988L12.5 7.50117C12.5 6.31366 13.8144 5.59704 14.8126 6.24031L21.7935 10.7391Z"/><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.875" d="M11.7935 10.7391C12.7101 11.3298 12.7101 12.6702 11.7935 13.2609L4.81255 17.7597C3.81437 18.403 2.5 17.6863 2.5 16.4988L2.5 7.50117C2.5 6.31366 3.81437 5.59704 4.81255 6.24031L11.7935 10.7391Z"/></svg>          
+        <svg (click)="shareMusica(musica)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="18.25" cy="4.5" r="2.25" stroke="currentColor" stroke-width="2"/><circle cx="5.75" cy="12" r="2.25" stroke="currentColor" stroke-width="2"/><circle cx="18.25" cy="19.5" r="2.25" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M7.625 13.1252L16.5 18.4502"/><path stroke="currentColor" stroke-width="2" d="M16.375 5.625L7.625 10.875"/></svg>
+        
       </div>
     </div>
   </div>

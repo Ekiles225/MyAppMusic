@@ -411,7 +411,7 @@ button {
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  // gap: 1px;
   /* Espacio entre los controles */
   color: rgb(0, 0, 0);
 }
@@ -425,6 +425,7 @@ button {
   cursor: pointer;
   transition: 0.1s;
   margin-bottom: 5px;
+  margin-right: 10px;
 }
 
 .controls svg:hover {

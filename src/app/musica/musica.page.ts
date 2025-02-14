@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AnimationController, IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonAvatar, IonLabel, IonButton, IonList, IonImg, IonModal, IonButtons, IonTabButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonAvatar, IonLabel, IonButton } from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeezerService } from '../Servicios/deezer.service';
 import { RouterModule } from '@angular/router'; // Importa RouterModule
+import { Share } from '@capacitor/share';
+
 
 @Component({
   selector: 'app-musica',
@@ -19,15 +21,15 @@ export class MusicaPage implements OnInit {
   songs: any[] = []; // Canciones filtradas
   cancionSeleccionada: any = null;
   audio: HTMLAudioElement | null = null; // Referencia al objeto Audio actual
-  isPlaying: boolean = false;
   cancionesFiltradas: any[] = []; // Canciones que se mostrarán según la búsqueda
 
+  isPlaying: boolean = false; // Estado de reproducción
 
+  musica: any[] = [];
+  
   constructor(
     private deezerService: DeezerService,
     private route: ActivatedRoute,
-    private animationCtrl: AnimationController
-
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,21 @@ export class MusicaPage implements OnInit {
       this.fetchSongs(); // Llama al método para obtener canciones
     });
   }
+
+
+  async shareMusica(musica: any) {
+    try {
+      await Share.share({
+        title: musica.name,
+        text: `Mira esta musica: ${musica.name} - ${musica.genre}`,
+        url: `https://tuaplicacion.com/playlist/${musica.genre}`,
+      });
+      console.log('Musica compartida con éxito');
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
+  }
+
 
   fetchSongs() {
     if (this.genre) {

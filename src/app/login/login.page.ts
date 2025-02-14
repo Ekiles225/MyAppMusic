@@ -12,14 +12,16 @@ import { LoadingController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonInput,IonContent, CommonModule, FormsModule, RouterLink]
+  imports: [IonButton, IonInput,IonContent, CommonModule, FormsModule, RouterLink]
 })
 
 
 export class LoginPage {
 
   constructor(private UserService: UserService, private router: Router,
-    private loadingController: LoadingController, private alertController: AlertController, private alertCtrl: AlertController) { }
+    private loadingController: LoadingController, private alertController: AlertController, private alertCtrl: AlertController) {
+      
+     }
 
   ngOnInit() { }
 

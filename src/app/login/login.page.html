@@ -22,18 +22,28 @@
       <!-- Opciones de Login con Redes Sociales -->
  
       <div class="social-login">
-        <ion-button (click)="loginWithGoogle()"  expand="block" class="btn-google">
-          <ion-icon name="logo-google"></ion-icon>
-          Iniciar sesión con Google       
+        <ion-button (click)="loginWithGoogle()" fill="outline" >
+          <img
+                class="w-6 h-6"
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                loading="lazy"
+                alt="google logo"
+            />
+         Google       
         </ion-button>
       </div>
       <div class="social-login">
-        <ion-button (click)="loginWithFacebook()" routerLink="/principal" expand="block" class="btn-google">
-          <ion-icon name="logo-google"></ion-icon>
-          Iniciar sesión con Facebook       
+        <ion-button (click)="loginWithFacebook()"   fill="outline" expand="block" >      
+            <img
+            class="w-6 h-6"
+            src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+            loading="lazy"
+            alt="facebook logo"
+        />
+          Facebook       
         </ion-button>
       </div>
-      
+    
       <!-- 698278526138-85jrtj0fk5onvjdibh8pb47pm0j738kj.apps.googleusercontent.com -->
       <!-- Link de registro -->
       <p class="register-link">

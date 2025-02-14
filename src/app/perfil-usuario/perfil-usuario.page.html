@@ -1,8 +1,16 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-title (click)="cerrarSesion()" >Cerrar</ion-title>
+    <svg routerLink="/principal" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15.5 20.5L8.06066 13.0607C7.47487 12.4749 7.47487 11.5251 8.06066 10.9393L15.5 3.50001"/></svg>
+  </ion-toolbar>
+</ion-header>
+
+
 <div class="container">
   <div class="background-animation"></div>
 
   <div class="card">
-    <input id="fileInput" accept="image/png, image/jpeg" name="avatar" type="file" (change)="changeImage($event)">
+    <input id="fileInput" accept="musica2.jpg, image/jpeg" name="avatar" type="file" (change)="changeImage($event)">
     <main onclick="document.getElementById('fileInput').click()">
       <img src="http://localhost:3000/imagenes/persona/{{ profile.user.person.foto }}" alt="Profile">
     </main>
@@ -11,9 +19,9 @@
 
 
   <div class="info">
-    <ion-button style="color: black;" fill="clear" id="present-alert">{{ profile.user.person.nombreUsuario }} <br>
+    <ion-button style="color: black;" fill="clear" id="present-alert">{{ profile.user.person.nombreUsuario || 'Usuario' }}<br>
       <br>
-      {{ profile.user.person.descripcion }}
+      {{ profile.user.person.descripcion || 'Descripcion'}}
     </ion-button>
     <ion-alert trigger="present-alert" header="Editar Perfil" subHeader="Actualiza tu información"
       [inputs]="alertInputs" [buttons]="alertButtons"></ion-alert>
@@ -40,7 +48,7 @@
       </button>
     </ion-item>
   </ion-list>
-
+<!-- 
   
   <div class="bottom-navigation">
     <a href="#" [routerLink]="['/principal']" routerLinkActive="router-link-active" class="nav-item">
@@ -63,5 +71,5 @@
       </svg>
       <span>Tu Biblioteca</span>
     </a>
-  </div>
+  </div> -->
 </div>

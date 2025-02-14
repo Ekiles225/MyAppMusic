@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonItem, IonLabel, IonAvatar,InfiniteScrollCustomEvent } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 import { DeezerService } from 'src/app/Servicios/deezer.service';
+import { Share } from '@capacitor/share';
+
 
 @Component({
   selector: 'app-principal',
@@ -21,6 +23,7 @@ export class PrincipalPage implements OnInit {
   cancionSeleccionada: any = null;
   audio: HTMLAudioElement | null = null; // Referencia al objeto Audio actual
   isPlaying: boolean = false;
+  musica: any[] = [];
 
   
 
@@ -37,6 +40,19 @@ export class PrincipalPage implements OnInit {
     this.generateItems();
   }
 
+  
+  async shareMusica(musica: any) {
+    try {
+      await Share.share({
+        title: musica.name,
+        text: `Mira esta musica: ${musica.name} - ${musica.genre}`,
+        url: `https://tuaplicacion.com/playlist/${musica.genre}`,
+      });
+      console.log('Musica compartida con éxito');
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
+  }
   
   private generateItems() {
     const count = this.canciones.length + 1;

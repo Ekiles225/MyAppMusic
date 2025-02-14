@@ -121,31 +121,11 @@
 
 /* Social Login */
 .social-login {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Mayor espaciado entre botones */
+  gap: 5px; /* Mayor espaciado entre botones */
   width: 100%;
-}
-
-.social-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.social-button {
-  width: calc(50% - 10px); /* Ancho uniforme con separación */
-  padding: 10px;
-  font-size: 1rem;
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-.social-button:hover {
-  transform: scale(1.1); /* Efecto de ampliación */
 }
 
 
@@ -162,4 +142,10 @@
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+.w-6{
+  width: 25px;
+  height: 25px;
+  padding-right: 5px;
 }

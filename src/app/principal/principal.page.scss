@@ -19,6 +19,11 @@
   /* Safari y Chrome */
 }
 
+.albums-container::-webkit-scrollbar {
+  display: none;
+  /* Safari y Chrome */
+}
+
 
 /* Fondo Animado */
 .background-animation {

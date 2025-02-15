@@ -9,7 +9,7 @@ import {
   IonButton,
   IonAlert,
   AlertController,
-  ActionSheetController, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
+  ActionSheetController, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 
 import { RouterLink, Router } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
@@ -26,7 +26,7 @@ import { User } from '@angular/fire/auth';
   templateUrl: './perfil-usuario.page.html',
   styleUrls: ['./perfil-usuario.page.scss'],
   standalone: true,
-  imports: [IonTitle, IonToolbar, IonHeader, IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
+  imports: [IonContent, IonTitle, IonToolbar, IonHeader, IonAlert, IonButton, IonAvatar, CommonModule, FormsModule, IonList, IonItem, IonLabel,
     RouterLink
   ]
 })
@@ -66,7 +66,11 @@ export class PerfilUsuarioPage implements OnInit {
       { name: 'Pop', genre: 'pop' },
       { name: 'Balada', genre: 'balada' },
       { name: 'Merengue', genre: 'merengue' },
-
+      { name: 'Reggae', genre: 'reggae' },
+      { name: 'Country', genre: 'country' },
+      { name: 'Jazz', genre: 'jazz' },
+      { name: 'Electrónica', genre: 'electrónica' },
+      { name: 'Hip-Hop', genre: 'hip-hop' },
     ];
     this.playlists = this.filterDeletedPlaylists(allPlaylists);
     console.log('Playlists cargadas:', this.playlists);
@@ -77,8 +81,6 @@ cerrarSesion() {
   localStorage.clear(); 
   this.router.navigate(['/login']); // Redirige al login
 }
-
-
   
   // Método para abrir el ActionSheet
   async presentActionSheet(playlist: any) {

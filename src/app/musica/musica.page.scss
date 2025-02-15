@@ -1,4 +1,15 @@
 /* */
+ion-content {
+  overflow-y: scroll;
+  /* Asegura que el contenido sea desplazable */
+  z-index: 1;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+
 .audio-playerr {
   display: flex;
   align-items: center;
@@ -183,6 +194,7 @@ button {
   top: 0;
   left: 0;
 }
+
 
 .button-elem {
   display: block;

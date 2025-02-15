@@ -1,11 +1,16 @@
 /* From Uiverse.io by igoramos77 */
 .container {
   position: relative;
-  height: 100%;
+  // height: 100%;
   // background: #6c23c0;
   padding: 2rem;
   border-radius: 8px;
   transition: all .25s ease-in-out;
+
+  height: 100vh; /* Usa toda la altura de la pantalla */
+  overflow-y: auto; /* Habilita el desplazamiento */
+  scrollbar-width: none; /* Oculta la barra en Firefox */
+  -ms-overflow-style: none; /* Oculta la barra en IE/Edge */
 }
 
 .container:hover {
@@ -15,6 +20,11 @@
 .container:hover .card {
   transform: translateY(-5%);
 }
+
+.container::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en Chrome, Brave, Safari y Opera */
+}
+
 
 .info {
   margin-top: 1rem;
@@ -56,6 +66,7 @@
   border: 4px solid #c4e0e5;
 }
 
+
 //hasta aqui lo del card
 .background-animation {
   position: absolute;
@@ -80,8 +91,6 @@
     background-position: 100% 50%;
   }
 }
-
-
 
 
 /* From Uiverse.io by vinodjangid07 */
@@ -273,3 +282,4 @@
   transition: 0.4s;
   transform: translateX(-56px);
 }
+

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent,IonInput, IonButton,IonIcon } from '@ionic/angular/standalone';
+import { IonContent,IonInput, IonButton} from '@ionic/angular/standalone';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../Servicios/user.service';
 import { AlertController } from '@ionic/angular';
@@ -86,7 +86,7 @@ export class LoginPage {
     }
   }
 
-  
+
   async loginWithFacebook() {
     console.log('Iniciando sesión con Facebook...');
   

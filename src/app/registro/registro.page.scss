@@ -45,17 +45,40 @@
 .app-logo {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #5f5f5f; /* Color gris sobrio */
   animation: fade-in 1s ease-in-out;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 .tagline {
   font-size: 1rem;
   margin-bottom: 20px;
   font-weight: 300;
-  color: #7d7d7d; /* Texto gris claro */
+  color: #7d7d7d;
   animation: slide-up 1s ease-out;
 }
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Campos de Entrada */
 .input-field {
@@ -106,3 +129,9 @@
 .login-link a:hover {
   text-decoration: underline;
 }
+
+
+ion-content {
+  --overflow: hidden; /* Oculta la barra de desplazamiento en Ionic */
+}
+
